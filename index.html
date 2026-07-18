@@ -1,323 +1,432 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CircleRootTech — Apps Built With Purpose</title>
-<style>
-*{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#1a1a2e;}
-/* NAV */
-.nav{display:flex;justify-content:space-between;align-items:center;padding:14px 48px;border-bottom:1px solid #e8e8e4;background:#fff;position:sticky;top:0;z-index:100;flex-wrap:wrap;gap:10px;}
-.nav-logo{display:flex;align-items:center;gap:10px;}
-.nav-brand{font-size:16px;font-weight:600;color:#1a1a2e;}
-.nav-links{display:flex;gap:28px;}
-.nav-link{font-size:14px;color:#666;cursor:pointer;text-decoration:none;}
-.nav-link:hover{color:#1a1a2e;}
-.nav-cta{background:#1a1a2e;color:#fff;font-size:13px;padding:9px 20px;border-radius:24px;border:none;cursor:pointer;text-decoration:none;}
-.nav-cta:hover{background:#2d2d4e;}
-/* HERO */
-.hero{background:#1a1a2e;padding:72px 48px;text-align:center;display:flex;flex-direction:column;align-items:center;}
-.hero-text{max-width:640px;}
-.hero-badge{display:inline-block;background:rgba(255,140,66,0.15);color:#ff8c42;font-size:11px;font-weight:600;letter-spacing:1px;padding:5px 14px;border-radius:20px;margin-bottom:20px;text-transform:uppercase;border:1px solid rgba(255,140,66,0.3);}
-.hero-title{font-size:42px;font-weight:700;color:#fff;line-height:1.1;margin-bottom:16px;}
-.hero-title span{color:#ff8c42;}
-.hero-sub{font-size:16px;color:#aaa;line-height:1.8;margin-bottom:32px;}
-.hero-btns{display:flex;gap:12px;flex-wrap:wrap;}
-.btn-fire{background:#ff8c42;color:#1a1a2e;font-size:14px;font-weight:600;padding:13px 28px;border-radius:28px;border:none;cursor:pointer;text-decoration:none;}
-.btn-fire:hover{background:#e07030;}
-.btn-ghost{background:transparent;color:#fff;font-size:14px;padding:13px 28px;border-radius:28px;border:1px solid rgba(255,255,255,0.3);cursor:pointer;text-decoration:none;}
-.btn-ghost:hover{background:rgba(255,255,255,0.08);}
-/* STATS */
-.stats{display:flex;justify-content:center;gap:56px;padding:32px 48px;border-bottom:1px solid #e8e8e4;flex-wrap:wrap;background:#fafaf8;}
-.stat-num{font-size:32px;font-weight:700;color:#1a1a2e;text-align:center;}
-.stat-label{font-size:12px;color:#888;text-align:center;margin-top:4px;}
-/* SECTIONS */
-.section-center{text-align:center;max-width:660px;margin:0 auto;padding:72px 48px;}
-.section-label{font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#ff6b6b;margin-bottom:12px;}
-.section-title{font-size:30px;font-weight:700;color:#1a1a2e;margin-bottom:16px;line-height:1.25;}
-.section-body{font-size:16px;color:#555;line-height:1.8;}
-/* FOUNDER */
-.founder{background:#fafaf8;padding:72px 48px;}
-.founder-header{text-align:center;margin-bottom:40px;}
-.founder-inner{max-width:860px;margin:0 auto;display:flex;gap:40px;align-items:flex-start;flex-wrap:wrap;}
-.avatar{width:80px;height:80px;border-radius:50%;background:#1a1a2e;display:flex;align-items:center;justify-content:center;font-size:32px;flex-shrink:0;border:3px solid #ff8c42;}
-.founder-content{flex:1;min-width:260px;}
-.founder-name{font-size:22px;font-weight:700;color:#1a1a2e;margin-bottom:3px;}
-.founder-role{font-size:13px;color:#ff8c42;font-weight:600;margin-bottom:10px;}
-.founder-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px;}
-.tag{font-size:11px;padding:4px 12px;border-radius:20px;font-weight:600;}
-.tag-red{background:#fff0f0;color:#c03030;}
-.tag-blue{background:#f0f8ff;color:#0055aa;}
-.tag-green{background:#f0fff4;color:#1a7a3f;}
-.pull-quote{border-left:4px solid #ff8c42;padding:14px 20px;background:#fff;border-radius:0 10px 10px 0;margin-bottom:18px;}
-.pull-quote-text{font-size:17px;font-weight:600;color:#1a1a2e;line-height:1.55;font-style:italic;}
-.pull-quote-attr{font-size:12px;color:#999;margin-top:8px;}
-.bio-para{font-size:15px;color:#555;line-height:1.85;margin-bottom:12px;}
-.bio-para b{color:#1a1a2e;}
-.metrics-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin:20px 0;}
-.metric{background:#fff;border-radius:12px;padding:16px;text-align:center;border:1px solid #e8e8e4;}
-.metric-num{font-size:26px;font-weight:700;color:#ff8c42;}
-.metric-label{font-size:11px;color:#888;margin-top:4px;line-height:1.4;}
-.vision-box{background:#1a1a2e;border-radius:14px;padding:22px 26px;}
-.vision-title{font-size:11px;font-weight:700;color:#ff8c42;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;}
-.vision-text{font-size:15px;color:#ccc;line-height:1.8;}
-.vision-text b{color:#fff;}
-/* APPS */
-.apps-section{padding:24px 48px 72px;background:#fff;}
-.apps-header{text-align:center;margin-bottom:32px;}
-.apps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;max-width:960px;margin:0 auto;}
-.app-card{background:#fafaf8;border-radius:18px;padding:24px;border:1px solid #e8e8e4;transition:border-color 0.2s;}
-.app-card:hover{border-color:#ccc;}
-.app-icon{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:12px;}
-.app-name{font-size:16px;font-weight:700;color:#1a1a2e;margin-bottom:4px;}
-.app-inspo{font-size:10px;color:#ff8c42;font-weight:700;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.6px;}
-.app-desc{font-size:13px;color:#777;line-height:1.6;margin-bottom:12px;}
-.app-bottom{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
-.status{display:inline-block;font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;}
-.status-review{background:#fff8e6;color:#b07800;}
-.status-testflight{background:#e6f4ff;color:#0066cc;}
-.status-building{background:#f0f0ff;color:#4a3f9f;}
-.status-new{background:#fff0f5;color:#993356;}
-.app-link{font-size:12px;color:#ff8c42;text-decoration:none;font-weight:600;}
-.app-link:hover{text-decoration:underline;}
-/* VALUES */
-.values-section{background:#fafaf8;padding:72px 48px;}
-.values-header{text-align:center;margin-bottom:32px;}
-.values-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;max-width:960px;margin:0 auto;}
-.value-card{padding:22px;border-radius:14px;background:#fff;border:1px solid #e8e8e4;}
-.value-icon{font-size:22px;margin-bottom:10px;}
-.value-title{font-size:15px;font-weight:700;color:#1a1a2e;margin-bottom:6px;}
-.value-text{font-size:13px;color:#777;line-height:1.65;}
-/* CTA */
-.cta{background:#1a1a2e;padding:72px 48px;text-align:center;}
-.cta-title{font-size:32px;font-weight:700;color:#fff;margin-bottom:14px;}
-.cta-sub{font-size:16px;color:#aaa;margin-bottom:32px;line-height:1.75;max-width:520px;margin-left:auto;margin-right:auto;}
-.cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
-.email-input{padding:13px 22px;border-radius:28px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.07);color:#fff;font-size:14px;width:280px;outline:none;}
-.email-input::placeholder{color:#888;}
-/* FOOTER */
-.footer{background:#0d0d1f;padding:44px 48px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
-.footer-brand{font-size:16px;font-weight:700;color:#fff;}
-.footer-sub{font-size:12px;color:#555;margin-top:4px;}
-.footer-links{display:flex;gap:22px;}
-.footer-link{font-size:13px;color:#555;cursor:pointer;text-decoration:none;}
-.footer-link:hover{color:#aaa;}
-.footer-copy{font-size:12px;color:#333;width:100%;margin-top:16px;padding-top:16px;border-top:1px solid #1e1e3e;}
-/* RESPONSIVE */
-@media(max-width:768px){
-  .nav{padding:14px 24px;}
-  .hero{padding:56px 24px;gap:32px;}
-  .hero-title{font-size:32px;}
-  .stats{gap:32px;padding:24px;}
-  .section-center{padding:52px 24px;}
-  .founder{padding:52px 24px;}
-  .apps-section{padding:16px 24px 52px;}
-  .values-section{padding:52px 24px;}
-  .cta{padding:52px 24px;}
-  .footer{padding:32px 24px;}
-}
-</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maribel Saenthavisouk — Founder, CircleRootTech LLC</title>
+<meta name="description" content="CircleRootTech LLC — a technology company built from the ground up on deliberate, durable software made for the people who use it. Founded and operated by Maribel Saenthavisouk. No ads, no data selling, ever.">
+
+<!-- Social preview (edit the URL after you deploy) -->
+<meta property="og:title" content="Maribel Saenthavisouk — Founder, CircleRootTech LLC">
+<meta property="og:description" content="Deliberate, durable software, built for the people who use it. No ads, no data selling, ever.">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<!-- NAV -->
-<nav class="nav">
-  <div class="nav-logo">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420" width="72" height="50">
-      <defs>
-        <linearGradient id="ng" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#FF6B6B"/><stop offset="100%" stop-color="#FFE66D"/></linearGradient>
-        <linearGradient id="nr" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#FF8C42"/><stop offset="100%" stop-color="#FFE66D"/></linearGradient>
-        <clipPath id="nc"><circle cx="185" cy="200" r="67"/></clipPath>
-      </defs>
-      <rect width="600" height="420" rx="24" fill="#1A1A2E"/>
-      <circle cx="185" cy="200" r="70" fill="none" stroke="url(#ng)" stroke-width="4"/>
-      <circle cx="185" cy="130" r="5" fill="#FFE66D"/><circle cx="246" cy="165" r="4" fill="#FF6B6B"/><circle cx="246" cy="235" r="4" fill="#FF6B6B"/><circle cx="185" cy="270" r="5" fill="#FFE66D"/><circle cx="124" cy="235" r="4" fill="#FF6B6B"/><circle cx="124" cy="165" r="4" fill="#FF6B6B"/>
-      <g clip-path="url(#nc)">
-        <line x1="185" y1="218" x2="185" y2="163" stroke="#FF8C42" stroke-width="5" stroke-linecap="round"/>
-        <path d="M185,193 C180,188 172,180 164,172 C157,164 155,156 160,151 C165,147 172,150 178,156 C183,162 185,170 185,180 C185,186 185,193 185,193Z" fill="#FF6B6B" opacity="0.92"/>
-        <path d="M185,193 C190,188 198,180 206,172 C213,164 215,156 210,151 C205,147 198,150 192,156 C187,162 185,170 185,180 C185,186 185,193 185,193Z" fill="#FFB347" opacity="0.92"/>
-        <ellipse cx="185" cy="158" rx="6" ry="8" fill="#FFE66D" opacity="0.9"/>
-        <circle cx="185" cy="218" r="5" fill="#FF8C42" opacity="0.9"/>
-        <path d="M185,218 Q169,226 154,236 Q141,246 131,257 Q123,266 120,276" fill="none" stroke="#FF6B6B" stroke-width="3" stroke-linecap="round"/>
-        <path d="M185,218 Q183,230 182,242 Q181,254 180,265 Q179,274 179,284" fill="none" stroke="url(#nr)" stroke-width="2.5" stroke-linecap="round"/>
-        <path d="M185,218 Q201,226 216,236 Q229,246 239,257 Q247,266 250,276" fill="none" stroke="#FFE66D" stroke-width="3" stroke-linecap="round"/>
-      </g>
-      <text x="345" y="174" font-family="Arial Black,sans-serif" font-size="50" font-weight="900" fill="white" letter-spacing="-1">Circle</text>
-      <text x="345" y="232" font-family="Arial Black,sans-serif" font-size="50" font-weight="900" fill="url(#ng)" letter-spacing="-1">Root</text>
-      <text x="349" y="266" font-family="Courier New,monospace" font-size="17" fill="#FFE66D" letter-spacing="12" opacity="0.9">TECH</text>
-    </svg>
-    <span class="nav-brand">CircleRootTech</span>
+<header class="plate">
+  <div class="wrap plate__inner">
+    <a class="mark" href="#top">Maribel Saenthavisouk <span>/ CircleRootTech</span></a>
+    <nav>
+      <a href="#company">The company</a>
+      <a href="#log">The standard</a>
+      <a href="#apps">Apps</a>
+      <a href="#applyworthy">ApplyWorthy</a>
+      <a href="#ai">AI</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </div>
-  <div class="nav-links">
-    <a href="#apps" class="nav-link">Apps</a>
-    <a href="#story" class="nav-link">Our Story</a>
-    <a href="#mission" class="nav-link">Mission</a>
-    <a href="#contact" class="nav-link">Contact</a>
-  </div>
-  <a href="#contact" class="nav-cta">Get early access</a>
-</nav>
+</header>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-text">
-    <div class="hero-badge">CircleRootTech LLC &middot; Salt Lake City, UT</div>
-    <h1 class="hero-title">Apps built with <span>purpose</span>,<br>not just code.</h1>
-    <p class="hero-sub">Built by a mom with zero coding experience and a vision to make the world safer, more connected, and full of love &mdash; one app at a time.</p>
-    <div class="hero-btns" style="justify-content:center;">
-      <a href="#apps" class="btn-fire">See our apps</a>
-      <a href="#story" class="btn-ghost">Our story</a>
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero wrap">
+    <p class="eyebrow rise">Salt Lake City &middot; <b>Maribel Saenthavisouk, founder &amp; sole operator</b></p>
+    <h1 class="thesis rise" style="max-width:21ch">
+      Making software got easy.
+      <span class="turn">Making software <em>worth having</em> didn't.</span>
+    </h1>
+    <p class="hero__sub rise">
+      CircleRootTech is a technology company with one employee and one brief: build things that are
+      deliberate, that hold up, and that are made for the people who use them — not at their
+      expense. No ads. No data selling. Priced so the people it's for can actually have it.
+      I founded it, I write the code, and I decide what it will never do.
+    </p>
+    <div class="hero__chips rise">
+      <a class="chip chip--go" href="#company">What CircleRootTech is</a>
+      <a class="chip" href="#log">What the standard costs</a>
+      <a class="chip" href="RESUME.pdf">Résumé (PDF)</a>
+      <a class="chip" href="https://www.linkedin.com/in/maribel-saenthavisouk-1b42bb58">LinkedIn</a>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- STATS -->
-<section class="stats">
-  <div><div class="stat-num">5</div><div class="stat-label">Apps built</div></div>
-  <div><div class="stat-num">2</div><div class="stat-label">Under Apple review</div></div>
-  <div><div class="stat-num">1</div><div class="stat-label">On TestFlight</div></div>
-  <div><div class="stat-num">0</div><div class="stat-label">Prior coding experience</div></div>
-</section>
+  <!-- THE COMPANY -->
+  <section class="band" id="company">
+    <div class="wrap split">
+      <div>
+        <p class="kicker">01 &middot; The accomplishment</p>
+        <h2 class="h2">I didn't learn to code. I built a company.</h2>
+        <p class="lede" style="margin-bottom:1.5rem">
+          CircleRootTech is a technology company I am building from the ground up on one conviction:
+          software should be deliberate, it should be durable, and it should be made for the people who
+          use it rather than at their expense. That's the whole brief. Not scale, not an exit, not
+          shipping fast enough to flood a store with things nobody asked for.
+        </p>
+        <p style="max-width:var(--measure); margin:0 0 1.25rem;">
+          The products are the output. The company is the thing I actually made: registered in Utah,
+          with an operating handbook, a strategic roadmap, a pricing model, and a standard for what
+          ships — run by one person, alongside a full-time job.
+        </p>
+        <p style="max-width:var(--measure); margin:0 0 1.25rem;">
+          Learning React Native was the easy part. The hard part was deciding what a company is for.
+          There is an enormous amount of software being generated right now by people who can prompt
+          their way to a build, can't get it through review, can't support it, and never asked whether
+          it should exist. <b>I'm not a vibe coder shipping volume.</b> I don't compete on how much I
+          can put out. I compete on whether the thing is worth having.
+        </p>
+        <p style="max-width:var(--measure); margin:0 0 1.75rem;">
+          Money isn't the goal. Revenue keeps the company alive so it can keep improving — that is its
+          entire job. What I'm actually building for is access: that the people a product was made for
+          can afford it, can trust it, and get a better version of it every year they stay.
+        </p>
 
-<!-- MISSION -->
-<section id="mission" class="section-center">
-  <div class="section-label">Our mission</div>
-  <h2 class="section-title">Technology that puts people first</h2>
-  <p class="section-body">CircleRootTech builds apps that matter &mdash; for children, young adults, families, and communities. Every product starts with a real human problem and ends with a solution that feels warm, simple, and trustworthy. We want a better world of connection, safety, understanding, and compassion.</p>
-</section>
-
-<!-- FOUNDER -->
-<section id="story" class="founder">
-  <div class="founder-header">
-    <div class="section-label">Our story</div>
-    <h2 class="section-title">From zero code to five apps</h2>
-  </div>
-  <div class="founder-inner">
-    <div class="avatar" style="padding:0;overflow:hidden;"><img src="data:image/jpeg;base64,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"" style="width:100%;height:100%;object-fit:cover;object-position:center top;" alt="Maribel Saenthavisouk"></div>
-    <div class="founder-content">
-      <div class="founder-name">Maribel Saenthavisouk</div>
-      <div class="founder-role">Founder &amp; CEO &middot; CircleRootTech LLC &middot; Salt Lake City, UT</div>
-      <div class="founder-tags">
-        <span class="tag tag-red">Solo founder</span>
-        <span class="tag tag-blue">Self-taught developer</span>
-        <span class="tag tag-green">Mom of 2</span>
+        <h3 class="kicker" style="margin-bottom:1.25rem">The charter</h3>
+        <ul class="charter">
+          <li><b>No ads, no data selling, ever.</b> Not a growth-stage decision to revisit later. It's the reason the company exists.</li>
+          <li><b>Priced for access, not extraction.</b> If the choice is between a bigger number and more people being able to use the thing, more people wins. Every time.</li>
+          <li><b>Every product comes from something I've lived.</b> Community, safety, caregiving, connection, getting hired. I don't build for markets I've only read about.</li>
+          <li><b>A three-year improvement cadence.</b> Apps get better on a schedule, driven by user feedback — not abandoned at v1.0, not churned for the sake of a changelog.</li>
+          <li><b>Status is honest.</b> One app is live. The rest are in development, in review, or being rebuilt — and this page says so instead of rounding up.</li>
+          <li><b>I test every fix myself before it ships.</b> On my own device, every time.</li>
+        </ul>
       </div>
-      <div class="pull-quote">
-        <div class="pull-quote-text">&ldquo;I didn&rsquo;t have a CS degree, a co-founder, or a team. I had a problem I couldn&rsquo;t stop thinking about &mdash; and I figured out how to build the solution myself.&rdquo;</div>
-        <div class="pull-quote-attr">&mdash; Maribel Saenthavisouk, Founder</div>
-      </div>
-      <p class="bio-para">Maribel is a <b>mother of two daughters</b> from Salt Lake City, Utah &mdash; with no prior coding background. She discovered that AI-assisted development could lower the barrier to building real software, and never looked back. Her first app, <b>TheShieldedPath</b>, was born from a mother&rsquo;s instinct to protect children online &mdash; currently under Apple App Store review. <b>No grant. No agency. Just a mom who decided it needed to exist.</b></p>
-      <p class="bio-para">Building TheShieldedPath sparked something. Maribel learned Figma, mobile design systems, and began systematically addressing the disconnects she saw around her. <b>CloseOnes</b> and <b>LaunchPad</b> were inspired by her nieces and nephews &mdash; young adults navigating loneliness and adulthood with no real toolkit. <b>The Grove</b> came from watching neighbors struggle with HOA chaos. <b>WithMe Pet</b> came from the universal grief of losing a fur family member &mdash; and the wish to keep them close, always.</p>
-      <p class="bio-para">In under two years, Maribel built <b>five distinct mobile applications</b> spanning child safety, mental wellness, community infrastructure, financial literacy, and grief tech &mdash; all under CircleRootTech LLC. <b>Zero outside funding. Five market verticals. One clear vision.</b></p>
-      <div class="metrics-row">
-        <div class="metric"><div class="metric-num">5</div><div class="metric-label">Apps built from scratch</div></div>
-        <div class="metric"><div class="metric-num">0</div><div class="metric-label">Prior coding experience</div></div>
-        <div class="metric"><div class="metric-num">0</div><div class="metric-label">Outside funding</div></div>
-        <div class="metric"><div class="metric-num">5</div><div class="metric-label">Distinct market verticals</div></div>
-      </div>
-      <div class="vision-box">
-        <div class="vision-title">The vision</div>
-        <p class="vision-text">CircleRootTech is not a single-app company. It is a <b>platform of purpose-driven products</b> built for the moments that matter most &mdash; protecting a child, comforting a grieving pet owner, helping a young adult find their footing, or bringing a neighborhood together. Maribel&rsquo;s mission is simple: <b>a better world of connection, safety, understanding, and compassion.</b> She&rsquo;s already building it &mdash; one app at a time.</p>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- APPS -->
-<section id="apps" class="apps-section">
-  <div class="apps-header">
-    <div class="section-label">Our portfolio</div>
-    <h2 class="section-title">Five apps. Five real problems solved.</h2>
-  </div>
-  <div class="apps-grid">
-    <a href="https://maribella83.github.io/shielded-path-website/" target="_blank" style="text-decoration:none;">
-    <div class="app-card">
-      <div class="app-icon" style="background:#0a0e1a;">&#x1F6E1;&#xFE0F;</div>
-      <div class="app-name">TheShieldedPath</div>
-      <div class="app-inspo">Inspired by: protecting children</div>
-      <p class="app-desc">A child safety app protecting kids from harmful and inappropriate content online, with always-on protection verified by NCMEC and IWF.</p>
-      <div class="app-bottom">
-        <span class="status status-review">Under Apple Review</span>
-        <span class="app-link">Visit site &rarr;</span>
+      <dl class="spec" aria-label="CircleRootTech at a glance">
+        <div><dt>Entity</dt><dd>CircleRootTech LLC &middot; Utah</dd></div>
+        <div><dt>Founded</dt><dd>2024</dd></div>
+        <div><dt>Headcount</dt><dd><b>1</b> — founder, engineer, designer, support, finance</dd></div>
+        <div><dt>Portfolio</dt><dd><b>7 apps</b> (iOS, Google Play) &middot; <b>1 web tool</b></dd></div>
+        <div><dt>Live</dt><dd>CloseOnes</dd></div>
+        <div><dt>In review</dt><dd>LaunchMaxx</dd></div>
+        <div><dt>In development</dt><dd>The Grove, Kongvene, Alongside, WithMe Pet, ApplyWorthy</dd></div>
+        <div><dt>Rebuilding</dt><dd>The Shielded Path</dd></div>
+        <div><dt>Stack</dt><dd>React Native &middot; Expo &middot; EAS &middot; Firebase</dd></div>
+        <div><dt>Revenue</dt><dd>Subscriptions &middot; B2B2C licensing</dd></div>
+        <div><dt>Funding</dt><dd><b>None.</b> Bootstrapped, year two</dd></div>
+        <div><dt>Ads</dt><dd><b>None.</b> By charter.</dd></div>
+        <div><dt>Data sold</dt><dd><b>None.</b> By charter.</dd></div>
+        <div><dt>Built while</dt><dd>Working full time, raising two daughters</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- LEDGER — the signature -->
+  <section class="band band--dark" id="log">
+    <div class="wrap">
+      <p class="kicker">02 &middot; The standard</p>
+      <h2 class="h2">A conviction isn't real until it costs you something.</h2>
+      <p class="lede">
+        Anyone can write a charter. This is what mine has cost me — every rejection, every rebuild,
+        every time I chose the slower thing on purpose. It's the only part of this page that proves
+        the rest of it.
+      </p>
+
+      <div class="ledger">
+        <div class="row">
+          <span class="row__date">2024</span>
+          <span class="row__app">Baseline</span>
+          <span class="row__what">LLC formed. First line of React Native. No engineering background — a Master of Education, an English degree, and sixteen years of programs.</span>
+        </div>
+        <div class="row">
+          <span class="row__date">Q1 2026</span>
+          <span class="row__app">The Shielded Path</span>
+          <span class="row__what"><span class="verdict v-ship">Shipped</span> Child-safety app, live on the App Store. Firebase anonymous auth for kids' devices, expiring pairing codes, live device heartbeat.</span>
+        </div>
+        <div class="row">
+          <span class="row__date">Q2 2026</span>
+          <span class="row__app">The Shielded Path</span>
+          <span class="row__what"><span class="verdict v-fix">Pulled — by me</span> Approved and live, but the Safari filtering users were paying for couldn't work without an entitlement Apple wasn't going to grant. I pulled my own approved app rather than sell a promise I couldn't keep, and rebuilt the architecture on DNS instead. <b>Shipping the wrong thing is not shipping.</b></span>
+        </div>
+        <div class="row">
+          <span class="row__date">Q2 2026</span>
+          <span class="row__app">LaunchMaxx</span>
+          <span class="row__what"><span class="verdict v-fix">4.3(a) — Spam</span> Rejected for looking generic. Redesigned the app, rebuilt the paywall with live pricing from the store, and routed my API keys through a Cloudflare Worker so no key ever ships in the bundle.</span>
+        </div>
+        <div class="row">
+          <span class="row__date">Q2 2026</span>
+          <span class="row__app">CloseOnes</span>
+          <span class="row__what"><span class="verdict v-fix">Rejected ×3</span> Wrong button IDs on the marketing site. A subscription that had to be submitted on its own review lane, not attached to the version. A one-letter casing bug in the RevenueCat entitlement. Found each one, fixed each one.</span>
+        </div>
+        <div class="row">
+          <span class="row__date">Q2 2026</span>
+          <span class="row__app">CloseOnes</span>
+          <span class="row__what"><span class="verdict v-ship">Shipped</span> v1.1.5 approved and live. Magic-link sign-in, yearly auto-renewing subscription, no ads and no data sold.</span>
+        </div>
+        <div class="row">
+          <span class="row__date">Q3 2026</span>
+          <span class="row__app">Kongvene</span>
+          <span class="row__what"><span class="verdict v-live">In build</span> Mahjong circle manager. RSVP seating at tables of four, automatic substitute promotion, organizer/player roles enforced in Firestore security rules — not just hidden in the UI.</span>
+        </div>
+        <div class="row">
+          <span class="row__date">Q3 2026</span>
+          <span class="row__app">ApplyWorthy</span>
+          <span class="row__what"><span class="verdict v-live">New</span> The one below. Sixteen years of the job-seeker problem, finally in code.</span>
+        </div>
+      </div>
+
+      <p class="ledger__note">
+        Every fix in this log was diagnosed and verified by me, on my own device, before it went back
+        to review. That habit turned into a service: diagnosing AI-generated apps that keep failing
+        App Store review, and fixing them for real.
+      </p>
+    </div>
+  </section>
+
+  <!-- APPS -->
+  <section class="band" id="apps">
+    <div class="wrap">
+      <p class="kicker">03 &middot; The portfolio</p>
+      <h2 class="h2">Eight things that had to earn the right to exist.</h2>
+      <p class="lede">
+        Every product here comes from something I've actually done: community, safety, caregiving,
+        connection, getting hired. None of them sell ads. None of them sell you. Status is honest —
+        including the ones I stopped.
+      </p>
+      <div class="grid">
+        <article class="card">
+          <div class="card__top">
+            <h3 class="card__name">CloseOnes</h3>
+            <span class="status status--live">Live</span>
+          </div>
+          <p class="card__what">A small, private circle for the people you'd actually call. Built against loneliness, not engagement metrics.</p>
+          <a class="card__site" href="https://maribella83.github.io/closeness-website/">Visit the CloseOnes site &rarr;</a>
+          <p class="card__meta">React Native &middot; Expo &middot; Firebase &middot; RevenueCat &middot; magic-link auth</p>
+        </article>
+
+        <article class="card">
+          <div class="card__top">
+            <h3 class="card__name">ApplyWorthy</h3>
+            <span class="status status--build">In development</span>
+          </div>
+          <p class="card__what">Not an app — a web tool for organizations. Pre-application ATS friction detector, licensed to workforce-development programs.</p>
+          <p class="card__meta">Node &middot; ATS profile engine &middot; B2B2C</p>
+        </article>
+
+        <article class="card">
+          <div class="card__top">
+            <h3 class="card__name">Kongvene</h3>
+            <span class="status status--build">In development</span>
+          </div>
+          <p class="card__what">Mahjong circle management — RSVPs, seating, substitutes, host rotation, dues. Built for a game I actually play.</p>
+          <p class="card__meta">React Native &middot; Firestore rules &middot; role-based access</p>
+        </article>
+
+        <article class="card">
+          <div class="card__top">
+            <h3 class="card__name">LaunchMaxx</h3>
+            <span class="status status--review">In review</span>
+          </div>
+          <p class="card__what">A gamified guide to being a functioning adult, for people nobody taught. Also bought by parents at graduation.</p>
+          <p class="card__meta">expo-iap &middot; Cloudflare Worker key proxy &middot; iOS + Google Play</p>
+        </article>
+
+        <article class="card">
+          <div class="card__top">
+            <h3 class="card__name">The Shielded Path</h3>
+            <span class="status">Rebuilding</span>
+          </div>
+          <p class="card__what">Child safety and parental controls. Pulled from sale by me when the architecture couldn't deliver the core promise. Being rebuilt on DNS.</p>
+          <a class="card__site" href="https://maribella83.github.io/shielded-path-website/">Read the full status &rarr;</a>
+          <p class="card__meta">Firebase auth &middot; device pairing &middot; NextDNS per-child profiles</p>
+        </article>
+
+        <article class="card">
+          <div class="card__top">
+            <h3 class="card__name">The Grove</h3>
+            <span class="status status--build">In development</span>
+          </div>
+          <p class="card__what">HOA management for boards and residents. Join-code onboarding, board and resident roles, multi-community from the ground up. Strongest revenue potential in the portfolio.</p>
+          <p class="card__meta">Multi-tenant Firestore &middot; three-tier pricing</p>
+        </article>
+
+        <article class="card">
+          <div class="card__top">
+            <h3 class="card__name">Alongside</h3>
+            <span class="status status--build">In development</span>
+          </div>
+          <p class="card__what">A companion for the sandwich generation — caring for aging parents and kids at the same time. Calm authority, on purpose.</p>
+          <p class="card__meta">AsyncStorage &middot; milestone guide &middot; slate-blue system</p>
+        </article>
+
+        <article class="card">
+          <div class="card__top">
+            <h3 class="card__name">WithMe Pet</h3>
+            <span class="status status--build">In development</span>
+          </div>
+          <p class="card__what">Pet memory keeping, for the part of grief nobody builds software for.</p>
+          <p class="card__meta">React Native &middot; Expo</p>
+        </article>
       </div>
     </div>
-    </a>
-    <a href="https://maribella83.github.io/closeness-website/" target="_blank" style="text-decoration:none;">
-    <div class="app-card">
-      <div class="app-icon" style="background:#e8f5f0;">&#x1F91D;</div>
-      <div class="app-name">CloseOnes</div>
-      <div class="app-inspo">Inspired by: nieces &amp; nephews</div>
-      <p class="app-desc">An anti-loneliness app for young adults. No photos, no swiping &mdash; just real circles of friends and meaningful connection activities.</p>
-      <div class="app-bottom">
-        <span class="status status-review">Under Apple Review</span>
-        <span class="app-link">Sneak peek &rarr;</span>
+  </section>
+
+  <!-- APPLYWORTHY -->
+  <section class="band" id="applyworthy">
+    <div class="wrap split">
+      <div>
+        <p class="kicker">04 &middot; Newest product</p>
+        <h2 class="h2">ApplyWorthy</h2>
+        <p class="lede" style="margin-bottom:1.5rem">
+          Job seekers spend hours on applications that were never going to be read — knocked out by an
+          applicant tracking system before a human sees them. ApplyWorthy checks the friction
+          <em>before</em> you apply, so you spend your hours where they can land.
+        </p>
+        <p style="max-width:var(--measure); margin:0 0 1.5rem;">
+          I built it because I watched it happen for sixteen years, from the side of the desk where
+          you have to tell someone why they never heard back. It ships as a licensed tool for
+          workforce-development organizations — the people already doing this work, given something
+          that scales past one caseworker at a time.
+        </p>
+        <p class="card__meta" style="padding-top:0">
+          Node &middot; ATS detection engine &middot; profile-matched scoring &middot; B2B2C licensing model
+        </p>
+      </div>
+
+      <div class="flow" aria-label="How ApplyWorthy works">
+        <div class="flow__step"><span class="flow__n">1</span><span>Paste the job posting link before you start the application.</span></div>
+        <div class="flow__step"><span class="flow__n">2</span><span>ApplyWorthy identifies which applicant tracking system is behind it.</span></div>
+        <div class="flow__step"><span class="flow__n">3</span><span>It scores the friction — how many screens, how much re-typing, what quietly disqualifies you.</span></div>
+        <div class="flow__step flow__step--out"><span class="flow__n">→</span><span><b>You decide where your hours go.</b> Apply, tailor first, or skip it.</span></div>
       </div>
     </div>
-    </a>
-    <div class="app-card">
-      <div class="app-icon" style="background:#1B4332;">&#x1F3D8;&#xFE0F;</div>
-      <div class="app-name">The Grove</div>
-      <div class="app-inspo">Inspired by: HOA chaos</div>
-      <p class="app-desc">The all-in-one HOA app. Documents, announcements, dues, safety &mdash; one platform to end miscommunication in neighborhoods.</p>
-      <div class="app-bottom"><span class="status status-building">In Development</span></div>
-    </div>
-    <div class="app-card">
-      <div class="app-icon" style="background:#fffbf0;">&#x1F680;</div>
-      <div class="app-name">LaunchPad</div>
-      <div class="app-inspo">Inspired by: young adults</div>
-      <p class="app-desc">The adulting guide nobody gave young adults. From opening a bank account to buying a home &mdash; gamified and fun.</p>
-      <div class="app-bottom"><span class="status status-building">In Development</span></div>
-    </div>
-    <div class="app-card">
-      <div class="app-icon" style="background:#fdf0e4;">&#x1F43E;</div>
-      <div class="app-name">WithMe Pet</div>
-      <div class="app-inspo">Inspired by: fur family love</div>
-      <p class="app-desc">Keep your pet&rsquo;s memory alive forever. Daily activities, real voice recordings, and a digi-pal version of your pet &mdash; always with you.</p>
-      <div class="app-bottom"><span class="status status-new">Just Launched</span></div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- VALUES -->
-<section class="values-section">
-  <div class="values-header">
-    <div class="section-label">What drives us</div>
-    <h2 class="section-title">Built on values, not vanity metrics</h2>
-  </div>
-  <div class="values-grid">
-    <div class="value-card"><div class="value-icon">&#x1F49B;</div><div class="value-title">Heart first</div><p class="value-text">Every app starts with empathy for the person who needs it most.</p></div>
-    <div class="value-card"><div class="value-icon">&#x1F512;</div><div class="value-title">Trust &amp; safety</div><p class="value-text">Especially for children and vulnerable users &mdash; safety is never optional.</p></div>
-    <div class="value-card"><div class="value-icon">&#x1F331;</div><div class="value-title">Real impact</div><p class="value-text">We measure success in lives made easier, not just downloads.</p></div>
-    <div class="value-card"><div class="value-icon">&#x1F91D;</div><div class="value-title">Connection</div><p class="value-text">Combating loneliness and disconnection in every product we build.</p></div>
-    <div class="value-card"><div class="value-icon">&#x2728;</div><div class="value-title">Simple &amp; beautiful</div><p class="value-text">Great design isn&rsquo;t a luxury &mdash; it&rsquo;s how we show we care.</p></div>
-    <div class="value-card"><div class="value-icon">&#x1F680;</div><div class="value-title">Fearless learning</div><p class="value-text">We started with zero experience and kept going anyway.</p></div>
-  </div>
-</section>
+  <!-- PROGRAMS -->
+  <section class="band" id="programs">
+    <div class="wrap">
+      <p class="kicker">05 &middot; Before this</p>
+      <h2 class="h2">Sixteen years designing programs for people, not users.</h2>
+      <p class="lede">
+        A software company founded by an engineer would have picked easier problems. Mine picked these
+        because I spent sixteen years inside them. Community Impact Specialist at CHG Healthcare.
+        Before that: Sr. Director of Community School Partnerships at United Way of Salt Lake,
+        technology workplace development at Zions Bancorporation, customer advocacy at Pluralsight,
+        people engagement at Ancestry. M.Ed. in Education, Culture &amp; Society, University of Utah.
+        B.A. in English, UT Austin. Bilingual, English and Spanish.
+      </p>
 
-<!-- CTA -->
-<section id="contact" class="cta">
-  <div class="section-label" style="color:#ff8c42;">Stay in the loop</div>
-  <h2 class="cta-title">Be first to know when our apps launch</h2>
-  <p class="cta-sub">TheShieldedPath and CloseOnes are both under Apple review right now. Join our list and we&rsquo;ll let you know the moment they&rsquo;re live.</p>
-  <div class="cta-row">
-    <input class="email-input" type="email" placeholder="your@email.com">
-    <button class="btn-fire">Notify me</button>
-  </div>
-</section>
+      <ul class="charter">
+        <li><b>Community school partnerships, at system scale.</b> Led a 12-person team across 43 K&ndash;12 schools, working with districts, nonprofits, state board leaders, and federal partners. Multi-level partnerships are the only reason any of it moved.</li>
+        <li><b>Grant-funded out-of-school-time programs.</b> Secured funding for STEM and after-school programs — written, won, and then administered, including the compliance reporting nobody volunteers for.</li>
+        <li><b>Workforce development and job readiness.</b> The program side of getting people hired. This is where ApplyWorthy comes from — I watched the applicant-tracking wall from the side of the desk that has to explain it.</li>
+        <li><b>Technology adoption and onboarding.</b> Primary relationship manager for an enterprise platform rollout at Ancestry — implementation, communication, and getting an organization to actually use the thing it bought. Rolling out software and building it turn out to share a problem.</li>
+        <li><b>Bilingual community outreach.</b> English and Spanish, in rooms where that's the difference between a program that reaches people and one that doesn't.</li>
+      </ul>
+    </div>
+  </section>
 
-<!-- FOOTER -->
-<footer class="footer">
-  <div>
-    <div class="footer-brand">CircleRootTech LLC</div>
-    <div class="footer-sub">circleroottech.com &middot; Salt Lake City, UT</div>
-  </div>
-  <div class="footer-links">
-    <a href="#" class="footer-link">Privacy</a>
-    <a href="#" class="footer-link">Terms</a>
-    <a href="#" class="footer-link">Contact</a>
-    <a href="#" class="footer-link">Press</a>
-  </div>
-  <div class="footer-copy">&copy; 2025 CircleRootTech LLC. All rights reserved. Built with purpose, love, and Claude. &#x1F9E1;</div>
+  <!-- AI -->
+  <section class="band" id="ai">
+    <div class="wrap split">
+      <div>
+        <p class="kicker">06 &middot; Working with AI</p>
+        <h2 class="h2">I'm not an AI researcher. I'm someone who ships with it.</h2>
+        <p class="lede" style="margin-bottom:1.5rem">
+          Every app in this portfolio was built by one person with AI as a working partner —
+          architecture, code review, debugging, strategy. That's not a novelty anymore. What's
+          still rare is knowing where the partnership ends.
+        </p>
+        <p style="max-width:var(--measure); margin:0 0 1.5rem;">
+          AI will confidently help you build something that cannot work. It helped me build a
+          child-safety app around a capability iOS was never going to grant me — and no amount of
+          prompting would have caught that. A person had to. That experience is most of what I know
+          about working with these tools: they compress the building, and they raise the price of
+          bad judgment. The judgment is still the job.
+        </p>
+        <p style="max-width:var(--measure); margin:0;">
+          It also turned into a service. There is a flood of AI-generated software right now that
+          can't pass App Store review, and the people who generated it often can't read it well
+          enough to find out why. I can — because I've been rejected for most of the reasons already.
+        </p>
+      </div>
+
+      <dl class="spec" aria-label="AI skills in practice">
+        <div><dt>Daily practice</dt><dd>Claude as development and strategy partner across <b>8 products</b> — architecture, code review, debugging</dd></div>
+        <div><dt>In production</dt><dd>Anthropic API integrated into LaunchMaxx (in review)</dd></div>
+        <div><dt>Key security</dt><dd>Cloudflare Worker proxy — <b>no API key ever ships in the bundle</b></dd></div>
+        <div><dt>Prompt design</dt><dd>For product features, not just chat — structured output parsed into live UI</dd></div>
+        <div><dt>AI-assisted dev</dt><dd>Cursor, day to day, on a production codebase</dd></div>
+        <div><dt>Code diagnosis</dt><dd>Reading AI-generated codebases to find why review keeps rejecting them</dd></div>
+        <div><dt>Review triage</dt><dd>Guideline-level diagnosis — 4.3(a) spam, 4.8 sign-in, entitlement limits</dd></div>
+        <div><dt>Judgment</dt><dd><b>Knowing what AI can't do.</b> Verified on my own device, every time, before it ships</dd></div>
+        <!-- Add certifications here once they're finished, e.g.:
+        <div><dt>Certified</dt><dd>Google AI Essentials &middot; 2026</dd></div> -->
+      </dl>
+    </div>
+  </section>
+
+  <!-- STACK -->
+  <section class="band">
+    <div class="wrap">
+      <p class="kicker">07 &middot; What I work in</p>
+      <h2 class="h2">Learned by shipping, not by course completion.</h2>
+      <p class="lede">
+        Every tool here is one I've used to get an app through review and into someone's hands.
+      </p>
+
+      <div class="stack">
+        <div>
+          <h3>Build</h3>
+          <ul>
+            <li>React Native</li>
+            <li>Expo &amp; EAS Build</li>
+            <li>JavaScript / Node</li>
+            <li>React Navigation</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Backend &amp; data</h3>
+          <ul>
+            <li>Firebase Auth</li>
+            <li>Firestore + security rules</li>
+            <li>Cloudflare Workers</li>
+            <li>AsyncStorage</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Ship &amp; monetize</h3>
+          <ul>
+            <li>App Store Connect</li>
+            <li>Google Play Console</li>
+            <li>RevenueCat</li>
+            <li>expo-iap</li>
+            <li>Guideline-level review triage</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="band band--dark close" id="contact">
+    <div class="wrap">
+      <p class="kicker">08</p>
+      <h2 class="thesis" style="font-size:clamp(1.9rem,1rem+3.6vw,3.2rem)">
+        If your org is interested in using <em>ApplyWorthy</em> — let's talk.
+      </h2>
+      <p class="lede" style="margin-top:1.75rem; color:var(--on-dark-2);">
+        Licensing conversations, pilot programs, or questions about what it actually does — all welcome.
+      </p>
+      <div class="hero__chips" style="margin-top:1.5rem">
+        <a class="chip chip--go" href="mailto:thecirclerootechllc@gmail.com" style="background:var(--amber); color:var(--on-accent); border-color:var(--amber)">Email me</a>
+        <a class="chip" href="https://www.linkedin.com/in/maribel-saenthavisouk-1b42bb58" style="background:transparent; color:var(--paper-hi); border-color:rgba(249,240,235,.3)">LinkedIn</a>
+        <a class="chip" href="https://github.com/maribella83" style="background:transparent; color:var(--paper-hi); border-color:rgba(249,240,235,.3)">GitHub</a>
+        <a class="chip" href="RESUME.pdf" style="background:transparent; color:var(--paper-hi); border-color:rgba(249,240,235,.3)">Résumé (PDF)</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="wrap foot">
+  <span>CircleRootTech LLC &middot; Salt Lake City, Utah</span>
+  <span>No ads. No data selling. Priced for access. Ever.</span>
 </footer>
 
 </body>
