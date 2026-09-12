@@ -50,37 +50,58 @@ rewrite it. Specificity is the whole product.
 
 ---
 
-## 3. Color — one warm arc
+## 3. Color — light base, warm gradient accent
 
-Not a set of picks. A **rule**: every color lives on the arc **hue 38°–60°**, and position on
-the arc is a function of lightness — *the darker the tone, the redder; the lighter, the more
-golden.* The accent sits one step past the top. Nothing is off-family.
+**v3, replacing the v2 all-navy scheme.** Maribel's call: keep the gradient (it's right — it's the
+logo), lose the dark background (read as heavy, not "professional and clean") and the display
+font (Bricolage Grotesque read as the old site's leftover quirkiness, not what she wants now).
+Light page, white/off-white surfaces, dark charcoal text, Inter for headlines. The two dark
+"evidence" bands (the build log, the final contact close) stay dark on purpose — see the
+band--dark rule below — but the page itself is light again.
 
 ```css
---ink:      #2C160F;  /* L.23  H38  — text, dark bands   */
---rust:     #79371B;  /* L.42  H42  — depth              */
---clay:     #A1491E;  /* L.51  H44  — the primary        */
---stone:    #725B51;  /* L.49  H45  — secondary text     */
---paper:    #F1DFD5;  /* L.92  H51  — the base           */
---paper-hi: #F9F0EB;  /* L.96  H51  — raised surfaces    */
---amber:    #EB9341;  /* L.74  H60  — the one highlight  */
+--bg:       #FBFAF8;  /* page background                     */
+--surface:  #F3F1ED;  /* raised panels — cards, flow box      */
+--bg-deep:  #1A1816;  /* dark charcoal — the evidence bands   */
 
---text-2:   #573A30;  --text-3:   #4B2C21;   /* body tones on light */
---on-dark-1:#E4D4CB;  --on-dark-2:#CEB9AE;   /* body tones on ink   */
---on-dark-3:#A38D83;  --on-accent:#341A02;
---rule:     rgba(44,22,15,.16);
+--coral:    #9E271A;  /* corrections only — pulled/rejected   */
+--clay:     #9E571A;  /* the primary — links, marks, CTAs     */
+--amber:    #8C6517;  /* the one highlight, as text           */
+--rust:     #D9603F;  /* depth — "in development" ring only   */
+--amber-fill: #F3C15A; /* same hue, vivid — fills/washes only, never text */
+
+--ink:      #1E1B17;  --stone:    #746F66;
+--text-2:   #4A453D;  --text-3:   #34302A;
+
+--paper-hi: #F5F1EC;  --on-dark-1:#EDE9E2;  --on-dark-2:#C9C3D6;
+--on-dark-3:#B8A98C;  --on-accent:#2B1608;
+--rule:     rgba(30,27,23,.12);
 ```
 
-**Adding a color?** Don't pick one. Choose a lightness, read the hue off the arc
-(`H = 38 + (L − 0.23) × 20`), and set chroma to match its neighbors. Then check contrast.
+**Why two versions of some colors exist.** `--coral`/`--clay`/`--amber` are deep enough to work as
+*text on the light page* (5–7:1 against `--bg`). The same hues at full saturation (the logo's
+actual brightness) fail contrast on white — they only work as solid fills or on the dark bands,
+which is what `--amber-fill` and the pastel `#F0938A`/`#F3C15A` pairing inside `.v-fix`/`.v-live`
+are for. **Don't reach for the vivid version as page text — it will fail contrast.** If a new
+component needs an accent color as text on the light page, use the deep token; if it needs a
+color as a solid fill or inside a dark band, the vivid value is fine.
 
-**Accessibility floor — already verified, keep it:** every text pairing passes WCAG AA.
-`ink/paper` 13.2:1 · `stone/paper` 4.9:1 · `clay/paper` 4.7:1 · `on-accent/amber` 6.8:1.
-Never introduce a pairing below 4.5:1 for body text or 3:1 for large display type.
+**Four colors, four jobs — unchanged from v2:** coral marks a correction only, clay is the
+workhorse (links, CTAs), amber is the one highlight (spend it sparingly — charter dashes,
+verdict pills, the headline underline), rust is only the hollow "in development" ring.
 
-**Spend boldness in one place.** Amber is the *only* highlight, used in small doses: verdict
-pills, charter dashes, the headline underline. If amber is on screen three times in one
-viewport, cut two.
+**Type — Inter for headlines**, replacing Bricolage Grotesque. Source Serif 4 (body) and
+IBM Plex Mono (labels/data) are unchanged.
+
+**Accessibility floor — verified, keep it:** `ink/bg` 16.4:1 · `text-2/bg` 9.1:1 · `stone/bg`
+4.8:1 · `clay/bg` 5.25:1 · `coral/bg` 7.3:1 · `amber/bg` 5.05:1 · `on-accent/amber-fill` 10.3:1 ·
+`paper-hi/bg-deep` 15.7:1 · `on-dark-2/bg-deep` 10.3:1 · `on-dark-3/bg-deep` 7.7:1. Never
+introduce a pairing below 4.5:1 for body text or 3:1 for large display type or UI graphics —
+recompute with a real contrast formula, don't eyeball it.
+
+**band--dark budget, unchanged: never more than two per page.** Right now that's the build log
+and the final contact close, on every page. If a third dark section starts to feel necessary,
+that's a sign to make it a light band instead, not to raise the budget.
 
 ---
 
@@ -132,16 +153,20 @@ first, then the pages — never the reverse.
 | Product | Type | Status | Notes |
 |---|---|---|---|
 | CloseOnes | iOS app | **Live** | v1.1.5. Magic-link auth, yearly subscription. |
-| LaunchMaxx | iOS + Google Play | **In review** | Formerly "LaunchPad" — rename everywhere. |
-| The Grove | app | **In development** | HOA. Strongest revenue potential. |
-| Kongvene | app | **In development** | Mahjong circles. Not on the live site at all. |
-| Alongside | app | **In development** | Caregiver companion. |
+| Kongvene | iOS app | **Live** | Site: kongvene.com. |
+| LaunchMaxx | iOS + Google Play | **In review** | Formerly "LaunchPad". Site: maribella83.github.io/launchmaxx-website. |
+| The Grove | app | **In review** | HOA app itself. Strongest revenue potential. |
+| Good Call | app | **In development** | Daily scenario game, young adults. Site: goodcallgame.com (live, not yet open). |
+| Alongside | app | **Coming soon** | Caregiver companion. |
 | WithMe Pet | app | **In development** | Live site wrongly says "Just Launched". |
 | The Shielded Path | app | **Pulled — rebuilding** | See §7. Most urgent. |
 | **ApplyWorthy** | **web tool, not an app** | **In development** | B2B2C licensing. Seeking design partners. |
+| **Grove Hub** | **platform, not an app** | **Site live, not open** | grovehub.io. Consumer/board face of The Grove — separate from the App Store submission. |
+| **YouByProxy** | **platform, not an app** | **Site live, not open** | youbyproxy.com. Two-sided relocation marketplace. Deep dive: youbyproxy.html. |
 
-**Count: 7 apps + 1 web tool = 8 products.** The live site says five. The résumé says six.
-Both are stale.
+**Count: 8 apps + 1 web tool = 9 products, plus 2 platforms tracked separately** (Grove Hub,
+YouByProxy — see §8's Platforms section). If this table and the live site ever disagree, fix
+the table first, then the pages.
 
 Facts: LLC registered in Utah, **founded 2024**. Headcount 1. Funding: none, bootstrapped,
 year two. Revenue: subscriptions + B2B2C licensing. No ads. No data sold.
@@ -176,9 +201,14 @@ is rebuilding the architecture on DNS.
 ## 8. Site map (target)
 
 ```
-/                   The thesis, the charter, the build log, the portfolio, contact
+/                   The thesis, the charter, the build log, the portfolio, the Platforms
+                    section (#platforms — YouByProxy, Grove Hub, and a preview card per
+                    product site), contact
 /applyworthy        Standalone. The cold-outreach destination for workforce-dev orgs.
 /apps/              Portfolio index → a page per product, honest status on each
+/the-grove.html     The Grove deep dive — problem, features, build status, pricing
+/applyworthy.html   ApplyWorthy deep dive — problem, how it works, design-partner pitch
+/youbyproxy.html    YouByProxy deep dive — problem, how it works, provider categories, status
 /founder            The sixteen years + AI practice + résumé
 /privacy /terms     Currently dead links (href="#"). Required for App Store submissions.
 ```
