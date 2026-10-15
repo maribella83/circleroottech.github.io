@@ -1,478 +1,632 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Maribel Saenthavisouk — Founder, CircleRootTech LLC</title>
-<meta name="description" content="CircleRootTech LLC — a technology company built from the ground up on deliberate, durable software made for the people who use it. Founded and operated by Maribel Saenthavisouk. No ads, no data selling, ever.">
-
-<!-- Social preview (edit the URL after you deploy) -->
-<meta property="og:title" content="Maribel Saenthavisouk — Founder, CircleRootTech LLC">
-<meta property="og:description" content="Deliberate, durable software, built for the people who use it. No ads, no data selling, ever.">
+<title>CircleRootTech — Apps, websites, platforms &amp; AI systems, built with intent</title>
+<meta name="description" content="CircleRootTech LLC is a one-person technology studio in Salt Lake City. Maribel Saenthavisouk designs, builds and ships mobile apps, websites, platforms and AI-powered systems. No ads. No data sold. Ever.">
+<meta property="og:title" content="CircleRootTech — Making software worth having">
+<meta property="og:description" content="Mobile apps, websites, platforms and AI workflows — forward-deployed, honestly labeled, ad-free.">
 <meta property="og:type" content="website">
-
+<link rel="icon" type="image/svg+xml" href="circleroot-mark.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* ===== CircleRootTech brand tokens — taken from the CircleRoot logo ===== */
+:root{
+  --ink:#12121F;        /* logo background, darkest */
+  --night:#1A1A2E;      /* logo background, lighter */
+  --line-dark:#2E2E46;
+  --coral:#FF6B6B;      /* fire gradient start, left leaf */
+  --orange:#FF8C42;     /* stem + root gradient */
+  --amber:#FFB347;      /* right leaf */
+  --sun:#FFE66D;        /* fire gradient end, bud, TECH */
+  --fire:linear-gradient(90deg,#FF6B6B 0%,#FF8C42 45%,#FFE66D 100%);
+  --paper:#F7F4EE;
+  --card:#FFFDF8;
+  --sand:#EFE9DE;
+  --rule:#DCD5C8;
+  --text:#12121F;
+  --text-2:#3B3B4C;
+  --muted:#5E5E72;      /* labels on light (4.9:1) */
+  --muted-dark:#A3A3B5; /* labels on dark */
+  --ember:#B5471B;      /* orange-family text that passes contrast on light */
+  --display:'Archivo Black','Arial Black',sans-serif;
+  --serif:'Newsreader',Georgia,serif;
+  --mono:'Space Mono','Courier New',monospace;
+  --wrap:1200px;
+  --gutter:clamp(16px,4vw,48px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--text);font-family:var(--serif);font-size:18px;line-height:1.55;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gutter)}
+.section{padding:clamp(64px,8vw,112px) 0}
+.dark{background:var(--ink);color:#F6F4EF}
+.label{margin:0;font-family:var(--mono);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.dark .label{color:var(--muted-dark)}
+h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;letter-spacing:-.02em}
+h2{font-size:clamp(36px,4.8vw,64px);line-height:1;text-wrap:balance}
+h3{font-size:26px;line-height:1.1}
+p{margin:0;text-wrap:pretty}
+.fire{background:var(--fire);-webkit-background-clip:text;background-clip:text;color:transparent}
+.ember{color:var(--ember)}
+.head{display:flex;flex-wrap:wrap;gap:24px 64px;align-items:flex-end;justify-content:space-between;margin-bottom:48px}
+.head > div{flex:1 1 520px;min-width:0;display:flex;flex-direction:column;gap:18px}
+.head > p{flex:1 1 380px;min-width:0;font-size:20px;color:var(--text-2)}
+.dark .head > p{color:#C9C9D6}
+.btn{font-family:var(--mono);font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;display:inline-flex;align-items:center;min-height:52px;padding:14px 24px;border:2px solid transparent;transition:transform .15s ease,box-shadow .15s ease}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--coral)}
+.btn-sun{background:var(--sun);color:var(--ink)}
+.btn-ghost{border-color:currentColor}
+.btn-ink{background:var(--ink);color:#F6F4EF}
+.btns{display:flex;flex-wrap:wrap;gap:14px}
+.skip{position:absolute;left:-999px}.skip:focus{left:16px;top:16px;z-index:10;background:var(--sun);color:var(--ink);padding:10px 14px}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
 
-<link rel="stylesheet" href="styles.css">
+/* ===== Nav ===== */
+.nav{background:var(--ink);border-bottom:1px solid var(--line-dark);position:sticky;top:0;z-index:5}
+.nav .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 24px;padding-top:12px;padding-bottom:12px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff}
+.brand img{width:44px;height:44px}
+.wordmark{font-family:var(--display);font-size:21px;letter-spacing:-.01em;line-height:1}
+.wordmark .tech{font-family:var(--mono);font-size:11px;color:var(--sun);letter-spacing:.38em;margin-left:8px;vertical-align:2px}
+.nav-links{display:flex;flex-wrap:wrap;align-items:center;gap:clamp(10px,2.2vw,28px);font-family:var(--mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+.nav-links a{color:#C9C9D6;text-decoration:none;padding:10px 0}
+.nav-links a:hover{color:var(--sun)}
+.nav-links .btn{min-height:44px;padding:10px 16px;color:var(--ink)}
+@media (max-width:720px){.nav-links a:not(.btn){display:none}}
+
+/* ===== Hero ===== */
+.hero{position:relative;overflow:hidden;background:radial-gradient(1200px 600px at 85% -10%,#1F1F36 0%,var(--ink) 60%)}
+.rings{position:absolute;pointer-events:none;opacity:.16}
+.hero .wrap{position:relative;display:flex;flex-wrap:wrap;gap:56px;align-items:center;padding-top:clamp(56px,9vw,120px);padding-bottom:clamp(56px,8vw,104px)}
+.hero-copy{flex:999 1 560px;min-width:0;display:flex;flex-direction:column;gap:28px}
+.hero h1{font-size:clamp(44px,6.6vw,92px);line-height:.98;letter-spacing:-.025em;text-wrap:balance}
+.hero .lede{max-width:640px;font-size:clamp(19px,1.7vw,23px);color:#C9C9D6}
+.hero .lede strong{color:#fff;font-weight:500}
+.dot{color:var(--sun)}
+.term{flex:1 1 380px;min-width:0;max-width:470px;background:var(--night);border:2px solid var(--line-dark);box-shadow:10px 10px 0 var(--orange)}
+.term-bar{display:flex;align-items:center;gap:8px;padding:12px 16px;border-bottom:1px solid var(--line-dark);font-family:var(--mono);font-size:12px;color:var(--muted-dark)}
+.term-bar i{width:11px;height:11px;border-radius:50%;display:inline-block}
+.term pre{margin:0;padding:20px 20px 24px;font-family:var(--mono);font-size:13.5px;line-height:1.85;color:#E8E8F0;white-space:pre-wrap;overflow-x:auto}
+.term .g{color:var(--muted-dark)} .term .y{color:var(--sun)} .term .o{color:var(--amber)}
+.cursor{display:inline-block;width:9px;height:17px;background:var(--sun);vertical-align:-3px;animation:blink 1.1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+
+/* ===== Ticker ===== */
+.ticker{background:var(--fire);overflow:hidden;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+.track{display:flex;width:max-content;gap:40px;padding:14px 0;font-family:var(--mono);font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);white-space:nowrap;animation:marquee 40s linear infinite}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+/* ===== Stats ===== */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(150px,100%),1fr));padding:56px 0;border-bottom:2px solid var(--ink)}
+.stat{padding:8px 20px;border-right:1px solid var(--rule);display:flex;flex-direction:column;gap:6px}
+.stat:last-child{border-right:0}
+.stat b{font-family:var(--display);font-weight:400;font-size:52px;line-height:1}
+.stat span{font-family:var(--mono);font-size:12px;letter-spacing:.12em;color:var(--muted)}
+
+/* ===== Cards ===== */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(340px,100%),1fr));gap:24px}
+.card{background:var(--card);border:2px solid var(--ink);padding:30px;display:flex;flex-direction:column;gap:14px;transition:transform .2s ease,box-shadow .2s ease}
+.card:hover{transform:translate(-3px,-3px);box-shadow:6px 6px 0 var(--ink)}
+.card p{color:var(--text-2)}
+.card .meta{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);font-size:12px;letter-spacing:.12em;color:var(--muted)}
+.card .proof{font-family:var(--mono);font-size:13px;line-height:1.6;border-top:1px dashed #BDB5A6;padding-top:14px;margin-top:auto;color:var(--text)}
+.card .proof b{color:var(--ember)}
+.card.inverse{background:var(--ink);color:#F6F4EF}
+.card.inverse p{color:#C9C9D6}
+.card.inverse .meta{color:var(--muted-dark)}
+.card.inverse .proof{color:#F6F4EF;border-color:#4A4A60}
+.card.inverse .proof b{color:var(--sun)}
+.card.sun{background:var(--sun)}
+.card.sun p,.card.sun .meta{color:var(--ink)}
+.ico{width:28px;height:28px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+/* ===== Menu (stack) ===== */
+.menu{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:40px 56px;font-family:var(--mono)}
+.menu h3{font-family:var(--serif);font-style:italic;font-size:26px;letter-spacing:0;margin-bottom:6px}
+.course{display:flex;flex-direction:column;gap:14px}
+.item{display:flex;gap:10px;align-items:baseline;font-size:15px}
+.item i{flex:1;border-bottom:2px dotted #4A4A60}
+.item span:last-child{color:var(--muted-dark)}
+.note{margin-top:48px;display:flex;flex-wrap:wrap;gap:24px;align-items:center;border:2px solid var(--line-dark);padding:28px 32px}
+.note p:first-child{flex:1 1 420px;min-width:0;font-size:21px;color:#E8E8F0}
+.note p:last-child{font-family:var(--mono);font-size:13px;letter-spacing:.08em;color:var(--muted-dark)}
+
+/* ===== Steps ===== */
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(250px,100%),1fr));border-top:2px solid var(--ink)}
+.steps li{padding:28px 24px 28px 0;display:flex;flex-direction:column;gap:12px}
+.steps li + li{padding-left:24px;border-left:1px solid var(--rule)}
+.steps .n{font-family:var(--display);font-size:44px;line-height:1;background:var(--fire);-webkit-background-clip:text;background-clip:text;color:transparent;align-self:flex-start}
+.steps h3{font-size:24px}
+.steps p{color:var(--text-2)}
+@media (max-width:560px){.steps li + li{padding-left:0;border-left:0;border-top:1px solid var(--rule)}}
+
+/* ===== Products ===== */
+.prod{background:var(--card);border:2px solid var(--ink);padding:26px;display:flex;flex-direction:column;gap:14px;transition:transform .2s ease,box-shadow .2s ease}
+.prod:hover{transform:translate(-3px,-3px);box-shadow:6px 6px 0 var(--ink)}
+.prod-top{display:flex;gap:16px;align-items:center}
+.logo{width:72px;height:72px;flex:none;border-radius:18px;border:2px solid var(--ink);object-fit:cover;background:#fff}
+.logo-txt{display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:24px;background:var(--sand)}
+.prod h3{font-size:28px;line-height:1.05}
+.cat{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;color:var(--muted);text-transform:uppercase}
+.status{align-self:flex-start;font-family:var(--mono);font-size:11.5px;font-weight:700;letter-spacing:.1em;padding:5px 10px;border:2px solid var(--ink);text-transform:uppercase}
+.s-live{background:var(--sun);color:var(--ink)}
+.s-dev{background:transparent;color:var(--ink);border-style:dashed}
+.s-soon{background:var(--amber);color:var(--ink)}
+.s-pulled{background:var(--ink);color:var(--sun)}
+.prod p{color:var(--text-2)}
+.prod .foot{margin-top:auto;border-top:1px dashed #BDB5A6;padding-top:12px;display:flex;flex-direction:column;gap:6px;font-family:var(--mono);font-size:12.5px;line-height:1.5}
+.prod .foot span:first-child{color:var(--muted);letter-spacing:.1em}
+.prod .foot a{color:var(--ember);font-weight:700;text-decoration:none}
+.prod .foot a:hover{text-decoration:underline}
+.prod.feature{background:var(--ink);color:#F6F4EF}
+.prod.feature p{color:#C9C9D6}
+.prod.feature .cat,.prod.feature .foot span:first-child{color:var(--muted-dark)}
+.prod.feature .foot{border-color:#4A4A60}
+.prod.feature .foot a{color:var(--sun)}
+.prod.feature .status{border-color:var(--sun)}
+.shelf-title{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:12px;margin:72px 0 24px;padding-top:28px;border-top:2px solid var(--ink)}
+.shelf-title h3{font-size:clamp(28px,3vw,40px)}
+.shelf-title p{color:var(--text-2);max-width:560px}
+.mini{grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr))}
+.mini .prod{padding:22px}
+.mini .logo{width:60px;height:60px;border-radius:15px}
+.mini .prod h3{font-size:22px}
+.wall{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:8px}
+.wall img{width:56px;height:56px;border-radius:14px;border:2px solid var(--ink);background:#fff}
+
+/* ===== Pulled ===== */
+.split{display:flex;flex-wrap:wrap;gap:56px;align-items:flex-start}
+.split > :first-child{flex:999 1 520px;min-width:0;display:flex;flex-direction:column;gap:22px}
+.ledger{flex:1 1 360px;min-width:0;background:var(--card);border:2px solid var(--ink);box-shadow:10px 10px 0 var(--amber)}
+.ledger .label{padding:18px 24px;border-bottom:2px solid var(--ink)}
+.ledger dl{margin:0;font-family:var(--mono);font-size:15px}
+.ledger div{display:flex;flex-wrap:wrap;gap:6px 16px;padding:18px 24px;border-bottom:1px solid var(--rule)}
+.ledger div:last-child{border-bottom:0}
+.ledger dt{width:92px;color:var(--ember);font-weight:700}
+.ledger dd{margin:0;flex:1 1 180px}
+
+/* ===== Rings ===== */
+.ringlog{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:16px;font-family:var(--mono)}
+.ringlog li{border:2px solid var(--line-dark);padding:22px;display:flex;flex-direction:column;gap:10px}
+.ringlog li.hot{border-color:var(--orange)}
+.ringlog small{font-size:12px;letter-spacing:.12em;color:var(--muted-dark)}
+.ringlog strong{font-size:17px}
+.ringlog em{align-self:flex-start;font-style:normal;background:#F6F4EF;color:var(--ink);font-size:11px;font-weight:700;padding:3px 8px}
+.ringlog li.hot em{background:var(--orange)}
+.ringlog p{font-size:13.5px;line-height:1.6;color:#C9C9D6}
+
+/* ===== Charter ===== */
+.charter{list-style:none;margin:0;padding:0;border-top:2px solid var(--ink);flex:999 1 520px;min-width:0}
+.charter li{display:flex;gap:20px;padding:22px 0;border-bottom:1px solid var(--rule)}
+.charter li span{font-family:var(--mono);font-size:14px;font-weight:700;color:var(--ember);min-width:28px}
+.charter strong{font-weight:500}
+
+/* ===== About ===== */
+.about{background:var(--card);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+.about .split > :first-child{flex:1 1 320px;max-width:420px}
+.about .split > :last-child{flex:999 1 520px;min-width:0;display:flex;flex-direction:column;gap:24px}
+.portrait{aspect-ratio:4/5;background:var(--ink);border:2px solid var(--ink);box-shadow:10px 10px 0 var(--coral);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.portrait img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
+.about .big{font-size:21px;color:var(--text-2)}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:32px;padding-top:8px}
+.cols h3{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.12em;color:var(--muted);margin-bottom:12px}
+.cols ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;font-size:17px;line-height:1.4}
+.chips{display:flex;flex-wrap:wrap;gap:8px;font-family:var(--mono);font-size:13px}
+.chips span{border:1.5px solid var(--ink);padding:6px 10px}
+.chips .hl{background:var(--sun)}
+
+/* ===== Contact / footer ===== */
+.contact{position:relative;overflow:hidden}
+.contact .wrap{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:26px;padding-top:clamp(72px,10vw,136px);padding-bottom:clamp(72px,10vw,136px)}
+.contact h2{font-size:clamp(44px,7vw,104px);line-height:.96}
+.contact p{max-width:660px;font-size:22px;color:#C9C9D6}
+footer{background:#0B0B14;color:var(--muted-dark)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-between;padding-top:28px;padding-bottom:28px;font-family:var(--mono);font-size:12.5px;letter-spacing:.06em}
+
+@media (prefers-reduced-motion:reduce){.track,.cursor{animation:none}.card,.prod,.btn{transition:none}html{scroll-behavior:auto}}
+</style>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
-<header class="plate">
-  <div class="wrap plate__inner">
-    <a class="mark" href="#top">Maribel Saenthavisouk <span>/ CircleRootTech</span></a>
-    <nav>
-      <a href="#company">The company</a>
-      <a href="#log">The standard</a>
-      <a href="#apps">Apps</a>
-      <a href="#applyworthy">ApplyWorthy</a>
-      <a href="#grove">The Grove</a>
-      <a href="#ai">AI</a>
-      <a href="#contact">Contact</a>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="CircleRootTech home">
+      <img src="circleroot-mark.svg" alt="" width="44" height="44">
+      <span class="wordmark">Circle<span class="fire">Root</span><span class="tech">TECH</span></span>
+    </a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#branches">Capabilities</a>
+      <a href="#work">Work</a>
+      <a href="#approach">Approach</a>
+      <a href="#about">About</a>
+      <a class="btn btn-sun" href="#contact">Let's circle up</a>
     </nav>
   </div>
 </header>
 
-<main id="top">
+<main id="main">
 
-  <!-- HERO -->
-  <section class="hero wrap">
-    <p class="eyebrow rise">Salt Lake City &middot; <b>Maribel Saenthavisouk, founder &amp; sole operator</b></p>
-    <h1 class="thesis rise" style="max-width:21ch">
-      Making software got easy.
-      <span class="turn">Making software <em>worth having</em> didn't.</span>
-    </h1>
-    <p class="hero__sub rise">
-      CircleRootTech is a technology company with one employee and one brief: build things that are
-      deliberate, that hold up, and that are made for the people who use them — not at their
-      expense. No ads. No data selling. Priced so the people it's for can actually have it.
-      I founded it, I write the code, and I decide what it will never do.
-    </p>
-    <div class="hero__chips rise">
-      <a class="chip chip--go" href="#company">What CircleRootTech is</a>
-      <a class="chip" href="#log">What the standard costs</a>
-      <a class="chip" href="RESUME.pdf">Résumé (PDF)</a>
-      <a class="chip" href="https://www.linkedin.com/in/maribel-saenthavisouk-1b42bb58">LinkedIn</a>
-    </div>
-  </section>
-
-  <!-- THE COMPANY -->
-  <section class="band" id="company">
-    <div class="wrap split">
-      <div>
-        <p class="kicker">01 &middot; The accomplishment</p>
-        <h2 class="h2">I didn't learn to code. I built a company.</h2>
-        <p class="lede" style="margin-bottom:1.5rem">
-          CircleRootTech is a technology company I am building from the ground up on one conviction:
-          software should be deliberate, it should be durable, and it should be made for the people who
-          use it rather than at their expense. That's the whole brief. Not scale, not an exit, not
-          shipping fast enough to flood a store with things nobody asked for.
-        </p>
-        <p style="max-width:var(--measure); margin:0 0 1.25rem;">
-          The products are the output. The company is the thing I actually made: registered in Utah,
-          with an operating handbook, a strategic roadmap, a pricing model, and a standard for what
-          ships — run by one person, alongside a full-time job.
-        </p>
-        <p style="max-width:var(--measure); margin:0 0 1.25rem;">
-          Learning React Native was the easy part. The hard part was deciding what a company is for.
-          There is an enormous amount of software being generated right now by people who can prompt
-          their way to a build, can't get it through review, can't support it, and never asked whether
-          it should exist. <b>I'm not a vibe coder shipping volume.</b> I don't compete on how much I
-          can put out. I compete on whether the thing is worth having.
-        </p>
-        <p style="max-width:var(--measure); margin:0 0 1.75rem;">
-          Money isn't the goal. Revenue keeps the company alive so it can keep improving — that is its
-          entire job. What I'm actually building for is access: that the people a product was made for
-          can afford it, can trust it, and get a better version of it every year they stay.
-        </p>
-
-        <h3 class="kicker" style="margin-bottom:1.25rem">The charter</h3>
-        <ul class="charter">
-          <li><b>No ads, no data selling, ever.</b> Not a growth-stage decision to revisit later. It's the reason the company exists.</li>
-          <li><b>Priced for access, not extraction.</b> If the choice is between a bigger number and more people being able to use the thing, more people wins. Every time.</li>
-          <li><b>Every product comes from something I've lived.</b> Community, safety, caregiving, connection, getting hired. I don't build for markets I've only read about.</li>
-          <li><b>A three-year improvement cadence.</b> Apps get better on a schedule, driven by user feedback — not abandoned at v1.0, not churned for the sake of a changelog.</li>
-          <li><b>Status is honest.</b> Two apps are live. The rest are in development, in review, or being rebuilt — and this page says so instead of rounding up.</li>
-          <li><b>I test every fix myself before it ships.</b> On my own device, every time.</li>
-        </ul>
+<!-- HERO -->
+<section id="top" class="hero dark">
+  <svg class="rings" aria-hidden="true" width="760" height="760" viewBox="0 0 760 760" style="right:-220px;top:-160px"><g fill="none" stroke-width="2"><circle cx="380" cy="380" r="370" stroke="#FFE66D"/><circle cx="380" cy="380" r="300" stroke="#FFB347"/><circle cx="380" cy="380" r="230" stroke="#FF8C42"/><circle cx="380" cy="380" r="160" stroke="#FF6B6B"/><circle cx="380" cy="380" r="90" stroke="#FFE66D"/></g></svg>
+  <div class="wrap">
+    <div class="hero-copy">
+      <p class="label">Salt Lake City <span class="dot">·</span> One builder <span class="dot">·</span> Many products <span class="dot">·</span> Zero ads</p>
+      <h1>Making software got easy. <span class="fire">Making software worth having didn't.</span></h1>
+      <p class="lede">CircleRootTech is a one-person technology studio. I design, build and ship <strong>mobile apps, websites, platforms and AI-powered systems</strong> — forward-deployed with the people who'll use them, with Claude as my co-pilot. No ads. No data sold. Ever.</p>
+      <div class="btns">
+        <a class="btn btn-sun" href="#work">See the work</a>
+        <a class="btn btn-ghost" href="#branches">What I can build</a>
       </div>
+    </div>
+    <div class="term" role="img" aria-label="Status board: CloseOnes, Kongvene, Good Call Game and GroveHub are live; The Shielded Path is rebuilding; Brimful and JargonToJourney are in development.">
+      <div class="term-bar"><i style="background:#FF6B6B"></i><i style="background:#FFB347"></i><i style="background:#FFE66D"></i><span style="margin-left:8px">~/circleroottech</span></div>
+<pre aria-hidden="true"><span class="g">$</span> circleroottech --status
+<span class="y">●</span> CloseOnes ........... LIVE
+<span class="y">●</span> Kongvene ............ LIVE ×2
+<span class="y">●</span> Good Call Game ...... LIVE
+<span class="y">●</span> GroveHub ............ LIVE ×2
+<span class="o">◌</span> The Shielded Path ... REBUILDING
+<span class="g">○</span> Brimful ............. IN DEV
+<span class="g">○</span> JargonToJourney ..... IN DEV
+<span class="g">—</span>
+<span class="g">ads served:</span> 0   <span class="g">data sold:</span> 0
+<span class="g">$</span> <span class="cursor"></span></pre>
+    </div>
+  </div>
+</section>
 
-      <dl class="spec" aria-label="CircleRootTech at a glance">
-        <div><dt>Entity</dt><dd>CircleRootTech LLC &middot; Utah</dd></div>
-        <div><dt>Founded</dt><dd>2024</dd></div>
-        <div><dt>Headcount</dt><dd><b>1</b> — founder, engineer, designer, support, finance</dd></div>
-        <div><dt>Portfolio</dt><dd><b>7 apps</b> (iOS, Google Play) &middot; <b>1 web tool</b></dd></div>
-        <div><dt>Live</dt><dd>CloseOnes, Kongvene</dd></div>
-        <div><dt>In review</dt><dd>LaunchMaxx</dd></div>
-        <div><dt>In development</dt><dd>The Grove, WithMe Pet, ApplyWorthy</dd></div>
-        <div><dt>Coming soon</dt><dd>Alongside</dd></div>
-        <div><dt>Rebuilding</dt><dd>The Shielded Path</dd></div>
-        <div><dt>Stack</dt><dd>React Native &middot; Expo &middot; EAS &middot; Firebase</dd></div>
-        <div><dt>Revenue</dt><dd>Subscriptions &middot; B2B2C licensing</dd></div>
-        <div><dt>Funding</dt><dd><b>None.</b> Bootstrapped, year two</dd></div>
-        <div><dt>Ads</dt><dd><b>None.</b> By charter.</dd></div>
-        <div><dt>Data sold</dt><dd><b>None.</b> By charter.</dd></div>
-        <div><dt>Built while</dt><dd>Working full time, raising two daughters</dd></div>
+<div class="ticker" aria-hidden="true">
+  <div class="track">
+    <span>Rooted in Salt Lake City</span><span>✶</span><span>No ad-ditives</span><span>✶</span><span>Root causes, never root access</span><span>✶</span><span>Grown, not scaled</span><span>✶</span><span>I circle back. For real.</span><span>✶</span><span>Every fix tested on my own phone</span><span>✶</span>
+    <span>Rooted in Salt Lake City</span><span>✶</span><span>No ad-ditives</span><span>✶</span><span>Root causes, never root access</span><span>✶</span><span>Grown, not scaled</span><span>✶</span><span>I circle back. For real.</span><span>✶</span><span>Every fix tested on my own phone</span><span>✶</span>
+  </div>
+</div>
+
+<!-- STATS -->
+<section aria-label="By the numbers">
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat"><b>2024</b><span>FOUNDED</span></div>
+      <div class="stat"><b>07</b><span>FLAGSHIP PRODUCTS</span></div>
+      <div class="stat"><b>04</b><span>APPS LIVE</span></div>
+      <div class="stat"><b>02</b><span>APP STORES</span></div>
+      <div class="stat"><b>01</b><span>OPERATOR</span></div>
+      <div class="stat"><b class="ember">00</b><span>ADS, EVER</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CAPABILITIES -->
+<section id="branches" class="section">
+  <div class="wrap">
+    <div class="head">
+      <div><p class="label">01 · Capabilities</p><h2>One root. <span class="ember">Many branches.</span></h2></div>
+      <p>Apps are where this started — not where it stops. Same standard, same root, whatever the shape of the problem: an app in your pocket, a site that explains itself, a system that quietly runs the back office.</p>
+    </div>
+    <div class="grid">
+      <article class="card">
+        <div class="meta"><span>BRANCH 01</span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M10.5 18.5h3"/></svg></div>
+        <h3>Mobile apps</h3>
+        <p>iOS and Android apps — designed, built, and shepherded through review to the store shelf. Accounts, subscriptions and all.</p>
+        <p class="proof"><b>PROOF →</b> CloseOnes · Kongvene · Good Call Game · GroveHub</p>
+      </article>
+      <article class="card">
+        <div class="meta"><span>BRANCH 02</span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="4" width="19" height="15" rx="2"/><path d="M2.5 8.5h19"/></svg></div>
+        <h3>Websites &amp; landing pages</h3>
+        <p>Fast, clear, honest sites — product pages, support and privacy pages, company sites — version-controlled and live on the web.</p>
+        <p class="proof"><b>PROOF →</b> A companion site for every app · jargontojourney.com · this one, too</p>
+      </article>
+      <article class="card">
+        <div class="meta"><span>BRANCH 03</span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="5.5" rx="8" ry="3"/><path d="M4 5.5v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/><path d="M4 11.5v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></div>
+        <h3>Platforms &amp; systems</h3>
+        <p>The plumbing under the pretty part: cloud backends, sign-in and roles, real-time data, and the tools that let an organization actually run.</p>
+        <p class="proof"><b>PROOF →</b> GroveHub — app + platform for HOA boards and residents</p>
+      </article>
+      <article class="card inverse">
+        <div class="meta"><span>BRANCH 04</span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" style="color:#FFE66D"><path d="M12 2.5v4M12 17.5v4M2.5 12h4M17.5 12h4M5.3 5.3l2.8 2.8M15.9 15.9l2.8 2.8M5.3 18.7l2.8-2.8M15.9 8.1l2.8-2.8"/></svg></div>
+        <h3>AI features &amp; workflows with Claude</h3>
+        <p>AI built into apps where it actually helps, plus Claude Projects and workflows that turn repeat work into one-ask work.</p>
+        <p class="proof"><b>PROOF →</b> Alongside's "I Noticed Something" (Claude API) · CircleRootTech's own ops system</p>
+      </article>
+      <article class="card">
+        <div class="meta"><span>BRANCH 05</span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h11a4 4 0 0 1 0 8H9a4 4 0 0 0 0 8h11"/><circle cx="4" cy="5" r="1.4"/><circle cx="20" cy="21" r="1.4"/></svg></div>
+        <h3>Tech translation &amp; consulting</h3>
+        <p>For people with a great idea and no map: plain-language plans for what to build, what it takes, and what to skip. In English or Spanish.</p>
+        <p class="proof"><b>PROOF →</b> JargonToJourney · Brimful</p>
+      </article>
+      <article class="card sun" style="justify-content:space-between">
+        <p class="label" style="color:#12121F">The trunk</p>
+        <p style="font-family:var(--display);font-size:30px;line-height:1.1">Not sure which branch you need? Most people aren't. It's my favorite question.</p>
+        <a href="#contact" style="font-family:var(--mono);font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase">Ask me anything →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- STACK -->
+<section id="stack" class="section dark">
+  <div class="wrap">
+    <div class="head">
+      <div><p class="label">02 · The stack</p><h2>Today's menu. <span class="fire">Served à la carte.</span></h2></div>
+      <p>The tools I reach for, grouped by course. I pick the smallest set that does the job well — no side of unnecessary complexity.</p>
+    </div>
+    <div class="menu">
+      <div class="course">
+        <h3 class="fire" style="align-self:flex-start">Starters — build</h3>
+        <div class="item"><span>React Native</span><i></i><span>iOS + Android</span></div>
+        <div class="item"><span>Expo &amp; Expo Go</span><i></i><span>fast iteration</span></div>
+        <div class="item"><span>JavaScript / TypeScript</span><i></i><span>house language</span></div>
+        <div class="item"><span>HTML &amp; CSS</span><i></i><span>web pages</span></div>
+      </div>
+      <div class="course">
+        <h3 class="fire" style="align-self:flex-start">Mains — data &amp; backend</h3>
+        <div class="item"><span>Firebase</span><i></i><span>cloud backend</span></div>
+        <div class="item"><span>Firestore</span><i></i><span>real-time data</span></div>
+        <div class="item"><span>Cloud Functions</span><i></i><span>server logic</span></div>
+        <div class="item"><span>RevenueCat</span><i></i><span>subscriptions</span></div>
+      </div>
+      <div class="course">
+        <h3 class="fire" style="align-self:flex-start">Kitchen — AI &amp; tooling</h3>
+        <div class="item"><span>Claude</span><i></i><span>pair programmer</span></div>
+        <div class="item"><span>Claude API</span><i></i><span>in-app AI</span></div>
+        <div class="item"><span>Cursor</span><i></i><span>code editor</span></div>
+        <div class="item"><span>GitHub + Pages</span><i></i><span>code + hosting</span></div>
+      </div>
+      <div class="course">
+        <h3 class="fire" style="align-self:flex-start">To go — shipping</h3>
+        <div class="item"><span>EAS Build</span><i></i><span>store-ready builds</span></div>
+        <div class="item"><span>App Store Connect</span><i></i><span>Apple review</span></div>
+        <div class="item"><span>Google Play Console</span><i></i><span>Android release</span></div>
+        <div class="item"><span>A real iPhone</span><i></i><span>final taste test</span></div>
+      </div>
+    </div>
+    <div class="note">
+      <p><span class="fire" style="font-family:var(--display)">Taught by Claude. Built and steered by me.</span> Claude was my teacher — explaining the code, the tools and the "why" behind every step. I do the building and the steering: the judgment, the users and the standard. Nothing ships until it works on my own device.</p>
+      <p>CHEF'S NOTE: NO ADS WERE HARMED<br>IN THE MAKING OF THIS MENU.</p>
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section id="approach" class="section">
+  <div class="wrap">
+    <div class="head">
+      <div><p class="label">03 · How I work</p><h2>Forward-deployed. <span class="ember">I get to the root of it.</span></h2></div>
+      <p>Forward-deployed engineering means the builder sits with the people who have the problem — not three meetings away from them. Sixteen years of community work taught me the real requirements live in the room. So that's where I start.</p>
+    </div>
+    <ol class="steps">
+      <li><span class="n">01</span><h3>Embed</h3><p>Show up where the work happens. Listen first, spec second.</p></li>
+      <li><span class="n">02</span><h3>Find the root cause</h3><p>Dig under the feature request to the real problem. (It's literally in the name.)</p></li>
+      <li><span class="n">03</span><h3>Build alongside</h3><p>Prototype fast with Claude, test on real devices, keep real people in the loop.</p></li>
+      <li><span class="n">04</span><h3>Ship — and stay</h3><p>Launch, watch, fix, repeat. Adoption is the finish line, not the release date.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work" class="section" style="background:var(--sand);border-top:2px solid var(--ink)">
+  <div class="wrap">
+    <div class="head">
+      <div><p class="label">04 · The work</p><h2>Honestly labeled. <span class="ember">Every one.</span></h2></div>
+      <p>Each one grew from something I've lived. None of them sell ads, none of them sell you — and the status on every card is the real one, including the app I stopped.</p>
+    </div>
+
+    <div class="grid">
+      <article class="prod">
+        <div class="prod-top"><img class="logo" src="logo-closeones.png" alt="CloseOnes logo" width="72" height="72"><div><p class="cat">Connection app</p><h3>CloseOnes</h3></div></div>
+        <span class="status s-live">● Live · App Store</span>
+        <p>For the people closest to you — private circles, not a public feed. Google Play next.</p>
+        <div class="foot"><span>SKILLS ON DISPLAY</span><span>Private circles · subscriptions · iOS release</span><a href="https://apps.apple.com/us/app/closeones/id6744942860">View on the App Store →</a></div>
+      </article>
+      <article class="prod">
+        <div class="prod-top"><img class="logo" src="logo-kongvene.png" alt="Kongvene logo" width="72" height="72"><div><p class="cat">Game-day organizer</p><h3>Kongvene</h3></div></div>
+        <span class="status s-live">● Live · Both stores</span>
+        <p>Mahjong table and game-day organizing — RSVPs, seating, substitutes.</p>
+        <div class="foot"><span>SKILLS ON DISPLAY</span><span>Scheduling logic · real-time data · iOS + Android</span><a href="https://kongvene.com">kongvene.com →</a><a href="https://apps.apple.com/us/app/kongvene/id6795776130">View on the App Store →</a></div>
+      </article>
+      <article class="prod">
+        <div class="prod-top"><img class="logo" src="logo-goodcall.png" alt="Good Call Game logo" width="72" height="72"><div><p class="cat">A life game</p><h3>Good Call Game</h3></div></div>
+        <span class="status s-live">● Live · App Store</span>
+        <p>Everyday life calls, played as a game. Now on the App Store; Google Play in review.</p>
+        <div class="foot"><span>SKILLS ON DISPLAY</span><span>Game design · scenario content · mascot + brand</span><a href="https://goodcallgame.com">goodcallgame.com →</a></div>
+      </article>
+      <article class="prod">
+        <div class="prod-top"><img class="logo" src="logo-grovehub.png" alt="GroveHub logo" width="72" height="72"><div><p class="cat">HOA app + platform</p><h3>GroveHub</h3></div></div>
+        <span class="status s-live">● Live · Both stores</span>
+        <p>For HOA boards and the residents they answer to — one community, one honest source of truth.</p>
+        <div class="foot"><span>SKILLS ON DISPLAY</span><span>Multi-community backend · board + resident roles</span></div>
+      </article>
+      <article class="prod feature">
+        <div class="prod-top"><img class="logo" src="logo-shieldedpath.png" alt="The Shielded Path logo" width="72" height="72"><div><p class="cat">Family safety · App 01</p><h3>The Shielded Path</h3></div></div>
+        <span class="status s-pulled">◌ Pulled · Rebuilding</span>
+        <p>Approved, then removed from the store by me — it couldn't keep its promise.</p>
+        <div class="foot"><span>RETURNS WHEN IT WORKS</span><a href="#pulled">Read why I pulled it →</a></div>
+      </article>
+      <article class="prod">
+        <div class="prod-top"><img class="logo" src="logo-brimful.png" alt="Brimful logo" width="72" height="72"><div><p class="cat">Consulting app + site</p><h3>Brimful</h3></div></div>
+        <span class="status s-dev">○ In development</span>
+        <p>Consulting, packaged as a product.</p>
+        <div class="foot"><span>SKILLS ON DISPLAY</span><span>App + web · service design</span><a href="https://brimfulpractice.com">brimfulpractice.com →</a></div>
+      </article>
+      <article class="prod">
+        <div class="prod-top"><img class="logo" src="logo-jargontojourney.svg" alt="JargonToJourney logo" width="72" height="72" style="padding:6px"><div><p class="cat">Service + platform</p><h3>JargonToJourney</h3></div></div>
+        <span class="status s-dev">○ In development</span>
+        <p>From jargon to a plan people can actually follow — bilingual guidance for non-technical builders.</p>
+        <div class="foot"><span>SKILLS ON DISPLAY</span><span>Plain-language guidance · booking + intake</span><a href="https://jargontojourney.com">jargontojourney.com →</a></div>
+      </article>
+      <article class="prod" style="background:var(--ink);color:#F6F4EF;justify-content:space-between">
+        <p class="cat" style="color:#A3A3B5">Product 08?</p>
+        <p style="font-family:var(--display);font-size:28px;line-height:1.1;color:#F6F4EF">Yours? This spot is <span class="fire">still taking root.</span></p>
+        <a href="#contact" style="font-family:var(--mono);font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#FF8C42;text-decoration:none">Plant an idea →</a>
+      </article>
+    </div>
+
+    <div class="shelf-title">
+      <h3>In the greenhouse</h3>
+      <p>Sprouts, seedlings and side projects — the next ring of the tree. Statuses are honest here, too.</p>
+    </div>
+    <div class="grid mini">
+      <article class="prod">
+        <div class="prod-top"><img class="logo" src="logo-alongside.png" alt="Alongside logo" width="60" height="60"><div><p class="cat">Caregiver companion</p><h3>Alongside</h3></div></div>
+        <span class="status s-soon">◐ Coming soon</span>
+        <p>For the sandwich generation caring for aging parents — with a Claude-powered "I Noticed Something" helper.</p>
+        <div class="foot"><a href="https://maribella83.github.io/alongside-website/">Visit the site →</a></div>
+      </article>
+      <article class="prod">
+        <div class="prod-top"><img class="logo" src="logo-launchmaxx.png" alt="LaunchMaxx logo" width="60" height="60"><div><p class="cat">Adulting guide</p><h3>LaunchMaxx</h3></div></div>
+        <span class="status s-dev">○ In progress</span>
+        <p>A gamified guide to adulting for young adults — the stuff nobody explains after graduation.</p>
+      </article>
+      <article class="prod">
+        <div class="prod-top"><img class="logo" src="logo-youbyproxy.png" alt="YouByProxy logo" width="60" height="60"><div><p class="cat">Marketplace platform</p><h3>YouByProxy</h3></div></div>
+        <span class="status s-dev">○ In development</span>
+        <p>Connects people relocating abroad with vetted movers, agents and specialists — free for clients.</p>
+        <div class="foot"><a href="https://youbyproxy.com">youbyproxy.com →</a></div>
+      </article>
+      <article class="prod">
+        <div class="prod-top"><img class="logo" src="logo-foldwell.png" alt="Foldwell logo" width="60" height="60"><div><p class="cat">Family app</p><h3>Foldwell</h3></div></div>
+        <span class="status s-dev">○ In development</span>
+        <p>Parents and kids trade notes, then print the keepers. The fridge door, upgraded.</p>
+      </article>
+      <article class="prod">
+        <div class="prod-top"><span class="logo logo-txt" aria-hidden="true" style="width:60px;height:60px">AW</span><div><p class="cat">Job-seeker tool · B2B</p><h3>ApplyWorthy</h3></div></div>
+        <span class="status s-dev">○ Prototype</span>
+        <p>Spots applicant-tracking-system friction before you hit apply — built for workforce-development partners.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- PULLED -->
+<section id="pulled" class="section" style="border-top:2px solid var(--ink)">
+  <div class="wrap split">
+    <div>
+      <p class="label">05 · Case study · The one I pulled</p>
+      <h2 style="font-size:clamp(34px,4.4vw,58px);line-height:1.02">The Shielded Path: approved, live — <span class="ember">and removed by me.</span></h2>
+      <p style="font-size:20px;color:var(--text-2)">It was my first app, and Apple approved it. But the protection it promised couldn't be delivered the way it was built, and I wasn't willing to over-promise to the families who trusted it. So I took it off the store myself.</p>
+      <p style="font-size:20px;color:var(--text-2)">It's being rebuilt on an architecture that can actually keep the promise. <em>Root causes, never shortcuts.</em></p>
+      <p style="font-family:var(--mono);font-size:13px;color:var(--muted)">No relaunch date is promised. It returns when it does what it says.</p>
+    </div>
+    <div class="ledger">
+      <p class="label">The standard, in practice</p>
+      <dl>
+        <div><dt>SHIPPED</dt><dd>Approved by Apple. Live on the App Store.</dd></div>
+        <div><dt>PULLED</dt><dd>By me, not by Apple. Removed from sale.</dd></div>
+        <div><dt>REASON</dt><dd>It couldn't deliver what it promised.</dd></div>
+        <div><dt>REBUILD</dt><dd>No date promised. It ships when it works.</dd></div>
       </dl>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- LEDGER — the signature -->
-  <section class="band band--dark" id="log">
-    <div class="wrap">
-      <p class="kicker">02 &middot; The standard</p>
-      <h2 class="h2">A conviction isn't real until it costs you something.</h2>
-      <p class="lede">
-        Anyone can write a charter. This is what mine has cost me — every rejection, every rebuild,
-        every time I chose the slower thing on purpose. It's the only part of this page that proves
-        the rest of it.
-      </p>
-
-      <div class="ledger">
-        <div class="row">
-          <span class="row__date">2024</span>
-          <span class="row__app">Baseline</span>
-          <span class="row__what">LLC formed. First line of React Native. No engineering background — a Master of Education, an English degree, and sixteen years of programs.</span>
-        </div>
-        <div class="row">
-          <span class="row__date">Q1 2026</span>
-          <span class="row__app">The Shielded Path</span>
-          <span class="row__what"><span class="verdict v-ship">Shipped</span> Child-safety app, live on the App Store. Firebase anonymous auth for kids' devices, expiring pairing codes, live device heartbeat.</span>
-        </div>
-        <div class="row">
-          <span class="row__date">Q2 2026</span>
-          <span class="row__app">The Shielded Path</span>
-          <span class="row__what"><span class="verdict v-fix">Pulled — by me</span> Approved and live, but the Safari filtering users were paying for couldn't work without an entitlement Apple wasn't going to grant. I pulled my own approved app rather than sell a promise I couldn't keep, and rebuilt the architecture on DNS instead. <b>Shipping the wrong thing is not shipping.</b></span>
-        </div>
-        <div class="row">
-          <span class="row__date">Q2 2026</span>
-          <span class="row__app">LaunchMaxx</span>
-          <span class="row__what"><span class="verdict v-fix">4.3(a) — Spam</span> Rejected for looking generic. Redesigned the app, rebuilt the paywall with live pricing from the store, and routed my API keys through a Cloudflare Worker so no key ever ships in the bundle.</span>
-        </div>
-        <div class="row">
-          <span class="row__date">Q2 2026</span>
-          <span class="row__app">CloseOnes</span>
-          <span class="row__what"><span class="verdict v-fix">Rejected ×3</span> Wrong button IDs on the marketing site. A subscription that had to be submitted on its own review lane, not attached to the version. A one-letter casing bug in the RevenueCat entitlement. Found each one, fixed each one.</span>
-        </div>
-        <div class="row">
-          <span class="row__date">Q2 2026</span>
-          <span class="row__app">CloseOnes</span>
-          <span class="row__what"><span class="verdict v-ship">Shipped</span> v1.1.5 approved and live. Magic-link sign-in, yearly auto-renewing subscription, no ads and no data sold.</span>
-        </div>
-        <div class="row">
-          <span class="row__date">Q3 2026</span>
-          <span class="row__app">Kongvene</span>
-          <span class="row__what"><span class="verdict v-ship">Shipped</span> Mahjong circle manager, approved and live on the App Store. RSVP seating at tables of four, automatic substitute promotion, organizer/player roles enforced in Firestore security rules — not just hidden in the UI.</span>
-        </div>
-        <div class="row">
-          <span class="row__date">Q3 2026</span>
-          <span class="row__app">Alongside</span>
-          <span class="row__what"><span class="verdict v-live">Coming soon</span> Companion app for the sandwich generation, caring for aging parents and kids at once. Heading into App Store submission.</span>
-        </div>
-        <div class="row">
-          <span class="row__date">Q3 2026</span>
-          <span class="row__app">ApplyWorthy</span>
-          <span class="row__what"><span class="verdict v-live">New</span> The one below. Sixteen years of the job-seeker problem, finally in code.</span>
-        </div>
-      </div>
-
-      <p class="ledger__note">
-        Every fix in this log was diagnosed and verified by me, on my own device, before it went back
-        to review. That habit turned into a service: diagnosing AI-generated apps that keep failing
-        App Store review, and fixing them for real.
-      </p>
+<!-- GROWTH RINGS -->
+<section id="rings" class="section dark">
+  <div class="wrap">
+    <div class="head">
+      <div><p class="label">06 · Growth rings</p><h2 style="font-size:clamp(34px,4.4vw,58px);line-height:1.02">A conviction isn't real until it <span class="fire">costs you something.</span></h2></div>
+      <p>Trees keep an honest record. So does this log — every rejection, every rebuild, every time the slower thing got chosen on purpose.</p>
     </div>
-  </section>
+    <ol class="ringlog">
+      <li><small>2024 · RING 0</small><strong>Baseline</strong><p>LLC formed. First line of React Native. A Master of Education, an English degree and sixteen years of programs — no engineering background.</p></li>
+      <li><small>APP 01</small><strong>The Shielded Path</strong><em>SHIPPED</em><p>The first app — approved and live on the App Store.</p></li>
+      <li class="hot"><small>APP 01</small><strong>The Shielded Path</strong><em>PULLED — BY ME</em><p>Couldn't deliver what it promised. Removed from sale. Being rebuilt to keep the promise.</p></li>
+      <li><small>APP 02</small><strong>CloseOnes</strong><em>SHIPPED</em><p>Connection app, live on the App Store. Google Play next.</p></li>
+      <li><small>APP 03</small><strong>Kongvene</strong><em>SHIPPED ×2</em><p>Mahjong game-day organizer. App Store and Google Play.</p></li>
+      <li><small>APPS 04–05</small><strong>Good Call · GroveHub</strong><em>SHIPPED</em><p>A life game and an HOA platform. Both on the App Store; GroveHub also on Google Play.</p></li>
+    </ol>
+    <p style="margin-top:32px;font-family:var(--mono);font-size:13px;color:var(--muted-dark)">Every fix in this log was diagnosed and verified by me, on my own device, before it went back to review.</p>
+  </div>
+</section>
 
-  <!-- APPS -->
-  <section class="band" id="apps">
-    <div class="wrap">
-      <p class="kicker">03 &middot; The portfolio</p>
-      <h2 class="h2">Eight things that had to earn the right to exist.</h2>
-      <p class="lede">
-        Every product here comes from something I've actually done: community, safety, caregiving,
-        connection, getting hired. None of them sell ads. None of them sell you. Status is honest —
-        including the ones I stopped.
-      </p>
-      <div class="grid">
-        <article class="card">
-          <div class="card__top">
-            <h3 class="card__name">CloseOnes</h3>
-            <span class="status status--live">Live</span>
-          </div>
-          <p class="card__what">A small, private circle for the people you'd actually call. Built against loneliness, not engagement metrics.</p>
-          <a class="card__site" href="https://maribella83.github.io/closeness-website/">Visit the CloseOnes site &rarr;</a>
-          <p class="card__meta">React Native &middot; Expo &middot; Firebase &middot; RevenueCat &middot; magic-link auth</p>
-        </article>
+<!-- CHARTER -->
+<section id="charter" class="section">
+  <div class="wrap split">
+    <div style="flex:1 1 360px">
+      <p class="label">07 · What I care about</p>
+      <h2 style="font-size:clamp(34px,4.4vw,58px);line-height:1.02">Organic growth. <span class="ember">No ad-ditives.</span></h2>
+      <p style="font-size:20px;color:var(--text-2)">CircleRootTech runs on one conviction: software should be deliberate, durable and made for the people who use it — not at their expense. Not scale, not an exit. A standard for what ships.</p>
+    </div>
+    <ul class="charter">
+      <li><span>01</span><p><strong>No ads, no data selling, ever.</strong> Not a growth-stage decision to revisit later — it's why the company exists.</p></li>
+      <li><span>02</span><p><strong>Priced for access, not extraction.</strong> Given a bigger number or more people using the thing, more people wins.</p></li>
+      <li><span>03</span><p><strong>Every product grows from something lived.</strong> Community, safety, connection, caregiving, getting organized, getting hired.</p></li>
+      <li><span>04</span><p><strong>Status is honest.</strong> Including the app I pulled from sale myself.</p></li>
+      <li><span>05</span><p><strong>Tested on my own device first.</strong> The only tracking here is the bugs I've fixed.</p></li>
+    </ul>
+  </div>
+</section>
 
-        <article class="card">
-          <div class="card__top">
-            <h3 class="card__name">Kongvene</h3>
-            <span class="status status--live">Live</span>
-          </div>
-          <p class="card__what">Mahjong circle management — RSVPs, seating, substitutes, host rotation, dues. Built for a game I actually play.</p>
-          <a class="card__site" href="https://apps.apple.com/us/app/kongvene/id6795776130">Get Kongvene on the App Store &rarr;</a>
-          <p class="card__meta">React Native &middot; Firestore rules &middot; role-based access</p>
-        </article>
-
-        <article class="card">
-          <div class="card__top">
-            <h3 class="card__name">ApplyWorthy</h3>
-            <span class="status status--build">In development</span>
-          </div>
-          <p class="card__what">Not an app — a web tool for organizations. Pre-application ATS friction detector, licensed to workforce-development programs.</p>
-          <p class="card__meta">Node &middot; ATS profile engine &middot; B2B2C</p>
-        </article>
-
-        <article class="card">
-          <div class="card__top">
-            <h3 class="card__name">LaunchMaxx</h3>
-            <span class="status status--review">In review</span>
-          </div>
-          <p class="card__what">A gamified guide to being a functioning adult, for people nobody taught. Also bought by parents at graduation.</p>
-          <p class="card__meta">expo-iap &middot; Cloudflare Worker key proxy &middot; iOS + Google Play</p>
-        </article>
-
-        <article class="card">
-          <div class="card__top">
-            <h3 class="card__name">The Shielded Path</h3>
-            <span class="status">Rebuilding</span>
-          </div>
-          <p class="card__what">Child safety and parental controls. Pulled from sale by me when the architecture couldn't deliver the core promise. Being rebuilt on DNS.</p>
-          <a class="card__site" href="https://maribella83.github.io/shielded-path-website/">Read the full status &rarr;</a>
-          <p class="card__meta">Firebase auth &middot; device pairing &middot; NextDNS per-child profiles</p>
-        </article>
-
-        <article class="card">
-          <div class="card__top">
-            <h3 class="card__name">The Grove</h3>
-            <span class="status status--build">In development</span>
-          </div>
-          <p class="card__what">HOA management for boards and residents. Join-code onboarding, board and resident roles, multi-community from the ground up. Strongest revenue potential in the portfolio.</p>
-          <a class="card__site" href="the-grove.html">See the full Grove page &rarr;</a>
-          <p class="card__meta">Multi-tenant Firestore &middot; three-tier pricing</p>
-        </article>
-
-        <article class="card">
-          <div class="card__top">
-            <h3 class="card__name">Alongside</h3>
-            <span class="status status--build">Coming soon</span>
-          </div>
-          <p class="card__what">A companion for the sandwich generation — caring for aging parents and kids at the same time. Calm authority, on purpose.</p>
-          <p class="card__meta">AsyncStorage &middot; milestone guide &middot; slate-blue system</p>
-        </article>
-
-        <article class="card">
-          <div class="card__top">
-            <h3 class="card__name">WithMe Pet</h3>
-            <span class="status status--build">In development</span>
-          </div>
-          <p class="card__what">Pet memory keeping, for the part of grief nobody builds software for.</p>
-          <p class="card__meta">React Native &middot; Expo</p>
-        </article>
+<!-- ABOUT -->
+<section id="about" class="section about">
+  <div class="wrap split">
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <div class="portrait"><img src="maribel.jpg" alt="Maribel Saenthavisouk, founder of CircleRootTech" width="480" height="596"></div>
+      <div class="btns">
+        <a class="btn btn-ink" href="RESUME.pdf">Résumé (PDF)</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/maribel-saenthavisouk-1b42bb58">LinkedIn</a>
+        <a class="btn btn-ghost" href="https://github.com/maribella83">GitHub</a>
       </div>
     </div>
-  </section>
-
-  <!-- APPLYWORTHY -->
-  <section class="band" id="applyworthy">
-    <div class="wrap split">
-      <div>
-        <p class="kicker">04 &middot; Newest product</p>
-        <h2 class="h2">ApplyWorthy</h2>
-        <p class="lede" style="margin-bottom:1.5rem">
-          Job seekers spend hours on applications that were never going to be read — knocked out by an
-          applicant tracking system before a human sees them. ApplyWorthy checks the friction
-          <em>before</em> you apply, so you spend your hours where they can land.
-        </p>
-        <p style="max-width:var(--measure); margin:0 0 1.5rem;">
-          I built it because I watched it happen for sixteen years, from the side of the desk where
-          you have to tell someone why they never heard back. It ships as a licensed tool for
-          workforce-development organizations — the people already doing this work, given something
-          that scales past one caseworker at a time.
-        </p>
-        <p class="card__meta" style="padding-top:0">
-          Node &middot; ATS detection engine &middot; profile-matched scoring &middot; B2B2C licensing model
-        </p>
-        <p style="margin:1.5rem 0 0;">
-          <a class="chip chip--go" href="applyworthy.html">See the full ApplyWorthy page &rarr;</a>
-        </p>
-      </div>
-
-      <div class="flow" aria-label="How ApplyWorthy works">
-        <div class="flow__step"><span class="flow__n">1</span><span>Paste the job posting link before you start the application.</span></div>
-        <div class="flow__step"><span class="flow__n">2</span><span>ApplyWorthy identifies which applicant tracking system is behind it.</span></div>
-        <div class="flow__step"><span class="flow__n">3</span><span>It scores the friction — how many screens, how much re-typing, what quietly disqualifies you.</span></div>
-        <div class="flow__step flow__step--out"><span class="flow__n">→</span><span><b>You decide where your hours go.</b> Apply, tailor first, or skip it.</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- THE GROVE -->
-  <section class="band" id="grove">
-    <div class="wrap split">
-      <div>
-        <p class="kicker">05 &middot; Strongest revenue potential</p>
-        <h2 class="h2">The Grove</h2>
-        <p class="lede" style="margin-bottom:1.5rem">
-          HOA communication mostly happens in scattered group texts, buried emails, and paper
-          flyers taped to a mailbox kiosk. The Grove gives a board one place to post announcements,
-          collect dues, and manage maintenance requests — and gives residents one app instead of four.
-        </p>
-        <p style="max-width:var(--measure); margin:0 0 1.5rem;">
-          Residents always use it free. The HOA board pays a small per-unit fee, the same way a
-          company pays for software its employees use — starting at nothing for small communities,
-          scaling with the neighborhood.
-        </p>
-        <p class="card__meta" style="padding-top:0">
-          React Native &middot; Expo &middot; Firebase &middot; multi-tenant Firestore &middot; join-code onboarding
-        </p>
-        <p style="margin:1.5rem 0 0;">
-          <a class="chip chip--go" href="the-grove.html">See the full Grove page &rarr;</a>
-        </p>
-      </div>
-
-      <div class="flow" aria-label="How The Grove works">
-        <div class="flow__step"><span class="flow__n">1</span><span>The board sets up their community and picks a plan — free for up to 50 units.</span></div>
-        <div class="flow__step"><span class="flow__n">2</span><span>Residents join with a simple code. No accounts to create by hand.</span></div>
-        <div class="flow__step"><span class="flow__n">3</span><span>The board posts once — announcements, documents, and events reach every resident.</span></div>
-        <div class="flow__step flow__step--out"><span class="flow__n">→</span><span><b>One app, not four.</b> Dues, maintenance, safety, and lost pets, all in the same place.</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROGRAMS -->
-  <section class="band" id="programs">
-    <div class="wrap">
-      <p class="kicker">06 &middot; Before this</p>
-      <h2 class="h2">Sixteen years designing programs for people, not users.</h2>
-      <p class="lede">
-        A software company founded by an engineer would have picked easier problems. Mine picked these
-        because I spent sixteen years inside them. Community Impact Specialist at CHG Healthcare.
-        Before that: Sr. Director of Community School Partnerships at United Way of Salt Lake,
-        technology workplace development at Zions Bancorporation, customer advocacy at Pluralsight,
-        people engagement at Ancestry. M.Ed. in Education, Culture &amp; Society, University of Utah.
-        B.A. in English, UT Austin. Bilingual, English and Spanish.
-      </p>
-
-      <ul class="charter">
-        <li><b>Community school partnerships, at system scale.</b> Led a 12-person team across 43 K&ndash;12 schools, working with districts, nonprofits, state board leaders, and federal partners. Multi-level partnerships are the only reason any of it moved.</li>
-        <li><b>Grant-funded out-of-school-time programs.</b> Secured funding for STEM and after-school programs — written, won, and then administered, including the compliance reporting nobody volunteers for.</li>
-        <li><b>Workforce development and job readiness.</b> The program side of getting people hired. This is where ApplyWorthy comes from — I watched the applicant-tracking wall from the side of the desk that has to explain it.</li>
-        <li><b>Technology adoption and onboarding.</b> Primary relationship manager for an enterprise platform rollout at Ancestry — implementation, communication, and getting an organization to actually use the thing it bought. Rolling out software and building it turn out to share a problem.</li>
-        <li><b>Bilingual community outreach.</b> English and Spanish, in rooms where that's the difference between a program that reaches people and one that doesn't.</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- AI -->
-  <section class="band" id="ai">
-    <div class="wrap split">
-      <div>
-        <p class="kicker">07 &middot; Working with AI</p>
-        <h2 class="h2">I'm not an AI researcher. I'm someone who ships with it.</h2>
-        <p class="lede" style="margin-bottom:1.5rem">
-          Every app in this portfolio was built by one person with AI as a working partner —
-          architecture, code review, debugging, strategy. That's not a novelty anymore. What's
-          still rare is knowing where the partnership ends.
-        </p>
-        <p style="max-width:var(--measure); margin:0 0 1.5rem;">
-          AI will confidently help you build something that cannot work. It helped me build a
-          child-safety app around a capability iOS was never going to grant me — and no amount of
-          prompting would have caught that. A person had to. That experience is most of what I know
-          about working with these tools: they compress the building, and they raise the price of
-          bad judgment. The judgment is still the job.
-        </p>
-        <p style="max-width:var(--measure); margin:0;">
-          It also turned into a service. There is a flood of AI-generated software right now that
-          can't pass App Store review, and the people who generated it often can't read it well
-          enough to find out why. I can — because I've been rejected for most of the reasons already.
-        </p>
-      </div>
-
-      <dl class="spec" aria-label="AI skills in practice">
-        <div><dt>Daily practice</dt><dd>Claude as development and strategy partner across <b>8 products</b> — architecture, code review, debugging</dd></div>
-        <div><dt>In production</dt><dd>Anthropic API integrated into LaunchMaxx (in review)</dd></div>
-        <div><dt>Key security</dt><dd>Cloudflare Worker proxy — <b>no API key ever ships in the bundle</b></dd></div>
-        <div><dt>Prompt design</dt><dd>For product features, not just chat — structured output parsed into live UI</dd></div>
-        <div><dt>AI-assisted dev</dt><dd>Cursor, day to day, on a production codebase</dd></div>
-        <div><dt>Code diagnosis</dt><dd>Reading AI-generated codebases to find why review keeps rejecting them</dd></div>
-        <div><dt>Review triage</dt><dd>Guideline-level diagnosis — 4.3(a) spam, 4.8 sign-in, entitlement limits</dd></div>
-        <div><dt>Judgment</dt><dd><b>Knowing what AI can't do.</b> Verified on my own device, every time, before it ships</dd></div>
-        <!-- Add certifications here once they're finished, e.g.:
-        <div><dt>Certified</dt><dd>Google AI Essentials &middot; 2026</dd></div> -->
-      </dl>
-    </div>
-  </section>
-
-  <!-- STACK -->
-  <section class="band">
-    <div class="wrap">
-      <p class="kicker">08 &middot; What I work in</p>
-      <h2 class="h2">Learned by shipping, not by course completion.</h2>
-      <p class="lede">
-        Every tool here is one I've used to get an app through review and into someone's hands.
-      </p>
-
-      <div class="stack">
+    <div>
+      <p class="label">08 · About me</p>
+      <h2 style="font-size:clamp(34px,4.4vw,58px);line-height:1.02">I didn't learn to code. <span class="ember">I built a company.</span></h2>
+      <p class="big">I'm <strong style="color:var(--text);font-weight:500">Maribel Saenthavisouk</strong> — founder of CircleRootTech and a forward-deployed builder. I spent sixteen years with people before I spent a single day with software: running programs, building partnerships, translating between the folks with the problem and the folks with the budget.</p>
+      <p class="big">That turns out to be the job. Today I bring the same instincts to code — listen for the real need, build the smallest honest thing that meets it, and stay until it works for the people it's for.</p>
+      <div class="cols">
         <div>
-          <h3>Build</h3>
+          <h3>THE ROOT SYSTEM — CAREER</h3>
           <ul>
-            <li>React Native</li>
-            <li>Expo &amp; EAS Build</li>
-            <li>JavaScript / Node</li>
-            <li>React Navigation</li>
+            <li><strong style="font-weight:500">Community impact</strong> — CHG Healthcare</li>
+            <li><strong style="font-weight:500">People engagement</strong> — Ancestry</li>
+            <li><strong style="font-weight:500">Customer advocacy</strong> — Pluralsight</li>
+            <li><strong style="font-weight:500">Technology workplace development</strong> — Zions Bancorporation</li>
+            <li><strong style="font-weight:500">Sr. Director, Community School Partnerships</strong> — United Way of Salt Lake (5 yrs)</li>
           </ul>
         </div>
         <div>
-          <h3>Backend &amp; data</h3>
-          <ul>
-            <li>Firebase Auth</li>
-            <li>Firestore + security rules</li>
-            <li>Cloudflare Workers</li>
-            <li>AsyncStorage</li>
-          </ul>
-        </div>
-        <div>
-          <h3>Ship &amp; monetize</h3>
-          <ul>
-            <li>App Store Connect</li>
-            <li>Google Play Console</li>
-            <li>RevenueCat</li>
-            <li>expo-iap</li>
-            <li>Guideline-level review triage</li>
-          </ul>
+          <h3>WHAT I BRING TO A BUILD</h3>
+          <div class="chips">
+            <span>Forward-deployed engineering</span><span>Mobile + web shipping</span><span>AI features &amp; workflows</span><span>Program design</span><span>Partnership building</span><span>Plain-language tech</span><span class="hl">Bilingual · EN / ES</span>
+          </div>
+          <h3 style="margin-top:24px">EDUCATION</h3>
+          <p style="font-size:17px">M.Ed., University of Utah<br>B.A. English, UT Austin</p>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- CONTACT -->
-  <section class="band band--dark close" id="contact">
-    <div class="wrap">
-      <p class="kicker">09</p>
-      <h2 class="thesis" style="font-size:clamp(1.9rem,1rem+3.6vw,3.2rem)">
-        If your org is interested in using <em>ApplyWorthy</em> — let's talk.
-      </h2>
-      <p class="lede" style="margin-top:1.75rem; color:var(--on-dark-2);">
-        Licensing conversations, pilot programs, or questions about what it actually does — all welcome.
-      </p>
-      <div class="hero__chips" style="margin-top:1.5rem">
-        <a class="chip chip--go" href="mailto:thecirclerootechllc@gmail.com" style="background:var(--amber); color:var(--on-accent); border-color:var(--amber)">Email me</a>
-        <a class="chip" href="https://www.linkedin.com/in/maribel-saenthavisouk-1b42bb58" style="background:transparent; color:var(--paper-hi); border-color:rgba(249,240,235,.3)">LinkedIn</a>
-        <a class="chip" href="https://github.com/maribella83" style="background:transparent; color:var(--paper-hi); border-color:rgba(249,240,235,.3)">GitHub</a>
-        <a class="chip" href="RESUME.pdf" style="background:transparent; color:var(--paper-hi); border-color:rgba(249,240,235,.3)">Résumé (PDF)</a>
-      </div>
+<!-- CONTACT -->
+<section id="contact" class="contact dark">
+  <svg class="rings" aria-hidden="true" width="620" height="620" viewBox="0 0 620 620" style="left:-200px;bottom:-260px"><g fill="none" stroke-width="2"><circle cx="310" cy="310" r="300" stroke="#FFE66D"/><circle cx="310" cy="310" r="230" stroke="#FF8C42"/><circle cx="310" cy="310" r="160" stroke="#FFB347"/><circle cx="310" cy="310" r="90" stroke="#FF6B6B"/></g></svg>
+  <div class="wrap">
+    <p class="label">09 · Contact</p>
+    <h2>Let's <span class="fire">circle up.</span></h2>
+    <p>Software with a name on it. Questions about an app, a website, a system, or working together — I read every message myself. There's no support queue; there's me. And yes, I actually circle back.</p>
+    <div class="btns">
+      <a class="btn btn-sun" href="mailto:thecirclerootechllc@gmail.com">Email me</a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/maribel-saenthavisouk-1b42bb58">LinkedIn</a>
+      <a class="btn btn-ghost" href="https://github.com/maribella83">GitHub</a>
     </div>
-  </section>
+  </div>
+</section>
 
 </main>
 
-<footer class="wrap foot">
-  <span>CircleRootTech LLC &middot; Salt Lake City, Utah</span>
-  <span>No ads. No data selling. Priced for access. Ever.</span>
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr">2026</span> CircleRootTech LLC · Planted in Salt Lake City, Utah</span>
+    <span>No ads. No data selling. Priced for access. <span style="color:var(--sun)">Ever.</span></span>
+  </div>
 </footer>
-
+<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
 </body>
 </html>
