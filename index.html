@@ -152,7 +152,8 @@ p{margin:0;text-wrap:pretty}
 .prod-top{display:flex;gap:16px;align-items:center}
 .logo{width:72px;height:72px;flex:none;border-radius:18px;border:2px solid var(--ink);object-fit:cover;background:#fff}
 .logo-txt{display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:24px;background:var(--sand)}
-.prod h3{font-size:28px;line-height:1.05}
+.prod-top > div{min-width:0}
+.prod h3{font-size:28px;line-height:1.05;overflow-wrap:break-word}
 .cat{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;color:var(--muted);text-transform:uppercase}
 .status{align-self:flex-start;font-family:var(--mono);font-size:11.5px;font-weight:700;letter-spacing:.1em;padding:5px 10px;border:2px solid var(--ink);text-transform:uppercase}
 .s-live{background:var(--sun);color:var(--ink)}
@@ -457,7 +458,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-bet
         <div class="foot"><span>SKILLS ON DISPLAY</span><span>App + web · service design</span><a href="https://brimfulpractice.com">brimfulpractice.com →</a></div>
       </article>
       <article class="prod">
-        <div class="prod-top"><img class="logo" src="logo-jargontojourney.svg" alt="JargonToJourney logo" width="72" height="72" style="padding:6px"><div><p class="cat">Service + platform</p><h3>JargonToJourney</h3></div></div>
+        <div class="prod-top"><img class="logo" src="logo-jargontojourney.svg" alt="JargonToJourney logo" width="72" height="72" style="padding:6px"><div><p class="cat">Service + platform</p><h3>JargonTo<wbr>Journey</h3></div></div>
         <span class="status s-dev">○ In development</span>
         <p>From jargon to a plan people can actually follow: bilingual guidance for non-technical builders.</p>
         <div class="foot"><span>SKILLS ON DISPLAY</span><span>Plain-language guidance · booking + intake</span><a href="https://jargontojourney.com">jargontojourney.com →</a></div>
