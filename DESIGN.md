@@ -171,7 +171,7 @@ the table first, then the pages.
 Facts: LLC registered in Utah, **founded 2024**. Headcount 1. Funding: none, bootstrapped,
 year two. Revenue: subscriptions + B2B2C licensing. No ads. No data sold.
 
-Contact: `thecirclerootechllc@gmail.com` · `github.com/maribella83` ·
+Contact: `thecircleroottechllc@gmail.com` · `github.com/maribella83` ·
 `linkedin.com/in/maribel-saenthavisouk-1b42bb58`
 
 ---
