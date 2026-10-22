@@ -27,7 +27,7 @@ company applies judgment, and the evidence for it.
 
 | Do | Never |
 |---|---|
-| **"I"** — one founder, one operator | **"We"** — there is no we |
+| **"I"** — Maribel, the founder, for what she builds and decides. Paulina Rodriguez (Founding Creative Partner, Lead Artist) is named, not folded into "we" | **"We"** as a blanket voice, or any claim of a team that isn't real |
 | State status honestly, including bad status | Round up. Ever. |
 | Name what a product *can't* do | Imply capability that isn't shipped |
 | Plain verbs, sentence case | Emoji as section markers |
@@ -168,7 +168,7 @@ first, then the pages — never the reverse.
 YouByProxy — see §8's Platforms section). If this table and the live site ever disagree, fix
 the table first, then the pages.
 
-Facts: LLC registered in Utah, **founded 2024**. Headcount 1. Funding: none, bootstrapped,
+Facts: LLC registered in Utah, **founded 2024**. Founder plus a Founding Creative Partner (Paulina Rodriguez; owns visuals, brand and social). Funding: none, bootstrapped,
 year two. Revenue: subscriptions + B2B2C licensing. No ads. No data sold.
 
 Contact: `thecircleroottechllc@gmail.com` · `github.com/maribella83` ·
