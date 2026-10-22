@@ -168,7 +168,7 @@ first, then the pages — never the reverse.
 YouByProxy — see §8's Platforms section). If this table and the live site ever disagree, fix
 the table first, then the pages.
 
-Facts: LLC registered in Utah, **founded 2024**. Founder plus one freelance Founding Creative Partner (Natalie Rodriguez, up to 10 hrs/week; owns visuals, brand and social). Funding: none, bootstrapped,
+Facts: LLC registered in Utah, **founded 2024**. Founder plus a Founding Creative Partner (Natalie Rodriguez; owns visuals, brand and social). Funding: none, bootstrapped,
 year two. Revenue: subscriptions + B2B2C licensing. No ads. No data sold.
 
 Contact: `thecircleroottechllc@gmail.com` · `github.com/maribella83` ·
