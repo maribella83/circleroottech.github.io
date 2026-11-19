@@ -1,0 +1,498 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kongvene What's New No. 1</title>
+<link rel="icon" type="image/svg+xml" href="../circleroot-mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap">
+<style>
+/* Layout: one centered newsletter column; navy masthead band with a rack of tiles, then three tile-headed sections and a sign-off card. */
+:root {
+  --navy: #1c2b4a;
+  --navy-soft: #2a3d63;
+  --cream: #fbf6ec;
+  --paper: #ffffff;
+  --ink: #1c2b4a;
+  --muted: #5c6782;
+  --mint: #7fd1bd;
+  --mint-deep: #2f8f7a;
+  --coral: #ef7a5f;
+  --coral-deep: #c9553b;
+  --tile-face: #fffdf7;
+  --tile-edge: #d9cfb8;
+  --tile-back: #7fd1bd;
+  --line: #e9e1d0;
+  --fill-bg: #fff1ec;
+  --font-display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --font-body: "DM Sans", "Helvetica Neue", Arial, system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --cream: #121b2e;
+    --paper: #1a2540;
+    --ink: #f3ede0;
+    --muted: #aeb6cb;
+    --navy: #0d1526;
+    --navy-soft: #22325a;
+    --mint-deep: #8fdcc8;
+    --coral-deep: #f59a83;
+    --line: #2b3a5e;
+    --fill-bg: #3a2730;
+    --tile-face: #fffdf7;
+    --tile-edge: #c9bea5;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --cream: #121b2e;
+  --paper: #1a2540;
+  --ink: #f3ede0;
+  --muted: #aeb6cb;
+  --navy: #0d1526;
+  --navy-soft: #22325a;
+  --mint-deep: #8fdcc8;
+  --coral-deep: #f59a83;
+  --line: #2b3a5e;
+  --fill-bg: #3a2730;
+  --tile-face: #fffdf7;
+  --tile-edge: #c9bea5;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+/* Masthead */
+.masthead {
+  background: var(--navy);
+  color: #fbf6ec;
+}
+.masthead-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  padding-block: 44px 40px;
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+  display: grid;
+  gap: 22px;
+}
+.eyebrow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--mint);
+}
+.eyebrow .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--coral); }
+.masthead h1 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(44px, 10vw, 76px);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+.masthead h1 em {
+  font-style: normal;
+  color: var(--coral);
+}
+.masthead p.lede {
+  margin: 0;
+  max-width: 52ch;
+  color: #d7dceb;
+  font-size: 18px;
+}
+
+/* The rack: a row of mahjong tiles */
+.rack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 10px 12px 14px;
+  background: var(--navy-soft);
+  border-radius: 10px;
+  width: fit-content;
+  max-width: 100%;
+  box-shadow: inset 0 -4px 0 rgba(0,0,0,0.25);
+}
+.tile {
+  --w: 38px;
+  width: var(--w);
+  height: calc(var(--w) * 1.32);
+  background: var(--tile-face);
+  border-radius: 6px;
+  border: 1px solid var(--tile-edge);
+  box-shadow: 0 4px 0 var(--tile-back), 0 5px 0 rgba(0,0,0,0.25);
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: calc(var(--w) * 0.5);
+  color: var(--navy);
+  line-height: 1;
+  flex: none;
+  transition: transform 0.2s ease;
+}
+.tile.red { color: #c9412b; }
+.tile.green { color: #23866f; }
+.tile.blank { color: transparent; border: 2px solid #7aa7d6; outline: 1px solid var(--tile-edge); }
+.rack .tile:hover { transform: translateY(-4px); }
+
+/* Body column */
+main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding-block: 40px 56px;
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+  display: grid;
+  gap: 44px;
+}
+.greeting p { margin: 0 0 14px; max-width: 62ch; }
+.greeting p:last-child { margin-bottom: 0; }
+.greeting .hi {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 24px;
+}
+
+section { display: grid; gap: 18px; }
+.section-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.section-head .tile { --w: 44px; }
+.section-head h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(28px, 6vw, 36px);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+}
+.section-head .kicker {
+  display: block;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 0;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+/* Fill-in placeholder: deliberately loud so it can't be missed before posting */
+.fill {
+  border: 2px dashed var(--coral);
+  background: var(--fill-bg);
+  color: var(--coral-deep);
+  border-radius: 12px;
+  padding: 14px 16px;
+  font-weight: 700;
+  font-size: 15px;
+}
+.fill-inline {
+  border: 2px dashed var(--coral);
+  background: var(--fill-bg);
+  color: var(--coral-deep);
+  border-radius: 6px;
+  padding: 0 6px;
+  font-weight: 700;
+}
+
+.headline-release {
+  background: var(--navy);
+  color: #fbf6ec;
+  border-radius: 18px;
+  padding: 22px 22px 24px;
+  display: grid;
+  gap: 8px;
+  box-shadow: 0 6px 0 var(--mint);
+}
+.headline-release .badge {
+  justify-self: start;
+  background: var(--coral);
+  color: #1c2b4a;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 999px;
+}
+.headline-release h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(28px, 6vw, 38px);
+  line-height: 1.05;
+  color: var(--mint);
+}
+.headline-release p { margin: 0; max-width: 58ch; color: #e3e7f2; }
+.recap-label {
+  margin: 4px 0 0;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.features {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.feature {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 16px 18px;
+  display: grid;
+  gap: 4px;
+  align-content: start;
+  min-width: 0;
+}
+.feature.wide { grid-column: 1 / -1; }
+.feature h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 19px;
+}
+.feature p { margin: 0; color: var(--muted); font-size: 15.5px; line-height: 1.5; }
+
+.story {
+  display: grid;
+  gap: 6px;
+  padding-left: 18px;
+  border-left: 3px solid var(--mint);
+}
+.story h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 21px;
+}
+.story p { margin: 0; max-width: 62ch; }
+.howto {
+  display: inline-block;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 1px 10px;
+  font-weight: 700;
+  font-size: 15px;
+  white-space: nowrap;
+}
+
+.rack-item {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 16px 18px;
+  display: grid;
+  gap: 6px;
+}
+.rack-item .status {
+  justify-self: start;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--navy);
+  color: var(--mint);
+}
+.rack-item h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 19px;
+}
+.rack-item p { margin: 0; max-width: 62ch; }
+
+.update {
+  background: var(--coral);
+  color: #1c2b4a;
+  border-radius: 18px;
+  padding: 24px 22px;
+  display: grid;
+  gap: 8px;
+}
+.update h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 28px;
+  line-height: 1.1;
+}
+.update p { margin: 0; max-width: 60ch; }
+.update .fill-inline { background: #fff6f2; color: #8d2f1c; border-color: #1c2b4a; }
+
+.signoff {
+  display: grid;
+  gap: 12px;
+  padding-top: 8px;
+  border-top: 2px dotted var(--line);
+}
+.signoff p { margin: 0; max-width: 62ch; }
+.signature {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 30px;
+  line-height: 1;
+  color: var(--coral-deep);
+}
+.role { color: var(--muted); font-size: 15px; }
+
+@media (max-width: 560px) {
+  body { font-size: 16px; }
+  .features { grid-template-columns: 1fr; }
+  .tile { --w: 32px; }
+  .section-head .tile { --w: 38px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tile { transition: none; }
+  .rack .tile:hover { transform: none; }
+}
+.backbar {
+  background: #12121f;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 700;
+}
+.backbar-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  padding-block: 10px;
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+}
+.backbar a { color: #ffe66d; text-decoration: none; }
+.backbar a:hover { text-decoration: underline; }
+.backbar a:focus-visible { outline: 3px solid #ffb347; outline-offset: 3px; }
+</style>
+
+</head>
+<body>
+<nav class="backbar" aria-label="Back"><div class="backbar-inner"><a href="../#whats-new">&larr; CircleRootTech</a></div></nav>
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="eyebrow"><span>Kongvene</span><span class="dot" aria-hidden="true"></span><span>Issue No. 1</span><span class="dot" aria-hidden="true"></span><span>November 2026</span></div>
+    <h1>What's <em>New</em></h1>
+    <p class="lede">Notes from the founder on what changed, why it changed, and what I'm still working on.</p>
+    <div class="rack" aria-hidden="true">
+      <div class="tile">K</div>
+      <div class="tile">O</div>
+      <div class="tile">N</div>
+      <div class="tile">G</div>
+      <div class="tile red">中</div>
+      <div class="tile green">發</div>
+      <div class="tile blank">.</div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="greeting">
+    <p class="hi">Hi friends,</p>
+    <p>Welcome to the very first What's New from Kongvene! I'm Maribel, and I build Kongvene for the people who keep a mahjong group going: the texting, the head counts, the "wait, who's bringing the set?"</p>
+    <p>Almost every update starts with something one of you told me. So this is where I'll share what changed, why it changed, and what I'm still working on. Pull up a chair.</p>
+  </div>
+
+  <section aria-labelledby="kong">
+    <div class="section-head">
+      <div class="tile red" aria-hidden="true">中</div>
+      <h2 id="kong">Kong-ratulations<span class="kicker">New versions, and what's inside them.</span></h2>
+    </div>
+    <div class="headline-release">
+      <span class="badge">New today · Version 1.5.0</span>
+      <h3>Tile of the Year</h3>
+      <p>Kongvene 1.5.0 is out today, and it brings Tile of the Year: a look back at your year at the mahjong table. Update the app and take a peek at yours.</p>
+    </div>
+    <p class="recap-label">In case you missed the last few updates</p>
+    <div class="features">
+      <div class="feature wide">
+        <h3>A set for every table</h3>
+        <p>Running more than one table? Each table now gets its own "I'll bring the set," so your second and third tables are covered too.</p>
+      </div>
+      <div class="feature">
+        <h3>Table Mode</h3>
+        <p>Your phone becomes a table companion, with dice to roll and a big Mahjong! button for the moment that counts.</p>
+      </div>
+      <div class="feature">
+        <h3>Add to Calendar</h3>
+        <p>Put a play day straight on your calendar so it doesn't get buried in the group chat.</p>
+      </div>
+      <div class="feature">
+        <h3>Charleston Pass</h3>
+        <p>A little help with the Charleston, the tile-passing ritual at the start of every American mahjong hand.</p>
+      </div>
+      <div class="feature">
+        <h3>RSVP by link</h3>
+        <p>Your players can say "I'm In" from a link, even before they download the app.</p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="tile">
+    <div class="section-head">
+      <div class="tile green" aria-hidden="true">發</div>
+      <h2 id="tile">Tile &amp; Error<span class="kicker">The stories behind the changes, straight from your feedback.</span></h2>
+    </div>
+    <div class="story">
+      <h3>The endless scroll</h3>
+      <p>One player told me they were tired of scrolling forever to find their next game. Fair! That note is why play days now show up as tiles you can take in at a glance, instead of one long list.</p>
+    </div>
+    <div class="story">
+      <h3>Who is "Player"?</h3>
+      <p>An organizer let me know that some people in their circle were showing up as just "Player." That happens when someone signs up with Apple and keeps their name private. Now Kongvene asks new members for a name when they join, and anyone can change theirs anytime: <span class="howto">You tab → Change my name</span></p>
+    </div>
+    <div class="story">
+      <h3>Bring the sets, plural</h3>
+      <p>A friend who runs more than one table asked how to keep track of sets for a second and third table. Games happen at cafes, restaurants and event spaces, not just around one kitchen table, and Kongvene should keep up. So now every table can track its own set.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="rack">
+    <div class="section-head">
+      <div class="tile blank" aria-hidden="true">.</div>
+      <h2 id="rack">The Rack Report<span class="kicker">Known hiccups I'm working on.</span></h2>
+    </div>
+    <div class="rack-item">
+      <span class="status">On my list</span>
+      <h3>Two sign-ins, two accounts</h3>
+      <p>If you signed up with Google and later sign in with Apple (or the other way around), Kongvene treats those as two separate accounts, so your circle can look like it vanished. It didn't! Sign out and sign back in the same way you first signed up. A real fix that links your sign-ins together is on my list.</p>
+    </div>
+  </section>
+
+  <div class="update" role="note">
+    <h2>Please update!</h2>
+    <p>If you downloaded Kongvene before version 1.5.0, open the App Store or Google Play and tap Update to get everything above. Your circles and play days live in your account, so nothing gets lost when you update.</p>
+  </div>
+
+  <div class="signoff">
+    <p>Thank you for playing, organizing, and telling me when something's off. Please keep it coming: in the app, go to Settings and tap Feedback. I read every note.</p>
+    <p>See you at the table,</p>
+    <div class="signature">Maribel</div>
+    <div class="role">Founder, Kongvene</div>
+  </div>
+</main>
+</body>
+</html>
